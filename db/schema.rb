@@ -10,25 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_075447) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_083734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
 
   create_table "runs", force: :cascade do |t|
     t.date "date"
     t.time "start_time"
     t.time "end_time"
     t.string "status"
-    t.string "location"
-    t.text "description"
-    t.integer "weather"
+    t.text "weather_description"
     t.float "wind"
-    t.integer "humidity"
+    t.float "humidity"
     t.float "precipitation"
     t.integer "air_quality"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "location_id", null: false
+    t.integer "temperature"
+    t.index ["location_id"], name: "index_runs_on_location_id"
     t.index ["user_id"], name: "index_runs_on_user_id"
   end
 
@@ -44,9 +56,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_075447) do
     t.string "last_name"
     t.string "time_of_day_preference"
     t.integer "temperature_preference"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "locations", "users"
+  add_foreign_key "runs", "locations"
   add_foreign_key "runs", "users"
 end
