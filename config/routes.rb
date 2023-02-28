@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :runs, only: %i[index show edit update destroy] do
+    collection do
+      get :trends
+    end
+  end
+  get "/suggestions", to: "runs#suggestions", as: :suggestions
 end
