@@ -78,3 +78,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# ADD ONS
+gem "geocoder"

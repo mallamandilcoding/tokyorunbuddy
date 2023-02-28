@@ -46,6 +46,7 @@ User.create!(
   temperature_preference: 15,
 )
 
+
 puts "Setting the time zone..."
 ENV['TZ'] = 'Asia/Tokyo'
 
@@ -79,3 +80,4 @@ runs.each_with_index do |run, index|
 end
 
 puts "Finished!"
+
