@@ -41,4 +41,10 @@ class RunsController < ApplicationController
     # do the logic here
     authorize @run
   end
+
+  private
+
+  def run_params
+    params.require(:run).permit(:date, :start_time, :end_time, :status, :location, :description, :weather, :wind, :humidity, :precipitation, :air_quality, photos: [])
+  end
 end
