@@ -1,3 +1,15 @@
+require 'open-uri'
+require 'json'
+
+api_key = "4fdf24cc8340f549948501271ef44d23"
+latitude = 35.67
+longitude = 139.77
+
+url = "https://api.openweathermap.org/data/3.0/onecall?lat=#{latitude}&lon=#{longitude}&exclude=minutely,alerts&appid=#{api_key}"
+response = URI.open(url).read
+data = JSON.parse(response)
+
+
 class RunsController < ApplicationController
   def suggestions
   end
@@ -28,5 +40,11 @@ class RunsController < ApplicationController
   def destroy
     # do the logic here
     authorize @run
+  end
+
+  private
+
+  def run_params
+    params.require(:run).permit(:date, :start_time, :end_time, :status, :location, :description, :weather, :wind, :humidity, :precipitation, :air_quality, photos: [])
   end
 end
