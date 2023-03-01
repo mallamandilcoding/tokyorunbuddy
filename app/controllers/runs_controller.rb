@@ -1,7 +1,8 @@
 class RunsController < ApplicationController
-  skip_after_action :verify_authorized, only: [:edit, :update]
+  skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show]
+
   def suggestions
-    authorize @run
+  @runnings = current_user.runs.where(status: "suggested")
   end
 
   def trends
@@ -21,7 +22,6 @@ class RunsController < ApplicationController
 
   def show
     # do the logic here
-    authorize @run
   end
 
   def update
@@ -44,6 +44,7 @@ class RunsController < ApplicationController
   private
 
   def run_params
-    params.require(:run).permit(:date, :start_time, :end_time, :location_id, :status, :weather, :wind, :humidity, :precipitation, :air_quality, photos: [])
+    params.require(:run).permit(:date, :start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :air_quality, :temperature)
+
   end
 end
