@@ -10,7 +10,7 @@ class RunsController < ApplicationController
 
   def index
     # @bookings = policy_scope(Booking) (eg)
-    @runnings = policy_scope(Run)
+    @runs = policy_scope(Run)
   end
 
   def edit
