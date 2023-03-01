@@ -24,7 +24,12 @@ class RunPolicy < ApplicationPolicy
     # record.user == user(example)
   end
 
+
   private
+
+    def suggestions?
+      true
+    end
 
   def user_is_owner?
     # write the user logic here

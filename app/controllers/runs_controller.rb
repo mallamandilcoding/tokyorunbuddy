@@ -1,7 +1,8 @@
 class RunsController < ApplicationController
 
-  # scope :scheduledruns, -> { where(status: "scheduled") }
+  skip_after_action :verify_authorized, only: [:suggestions, :show]
   def suggestions
+  @runnings = current_user.runs.where(status: "suggested")
   end
 
   def trends
@@ -19,7 +20,6 @@ class RunsController < ApplicationController
 
   def show
     # do the logic here
-    authorize @run
   end
 
   def update
