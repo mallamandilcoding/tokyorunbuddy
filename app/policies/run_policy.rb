@@ -23,6 +23,10 @@ class RunPolicy < ApplicationPolicy
       # record.user == user(example)
     end
 
+    def suggestions?
+      true
+    end
+
     private
 
     def user_is_owner?
