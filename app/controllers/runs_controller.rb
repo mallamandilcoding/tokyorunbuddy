@@ -1,5 +1,5 @@
 class RunsController < ApplicationController
-  skip_after_action :verify_authorized, only: :suggestions
+  skip_after_action :verify_authorized, only: [:suggestions, :show]
   def suggestions
   @runnings = current_user.runs.where(status: "suggested")
   end
@@ -19,7 +19,6 @@ class RunsController < ApplicationController
 
   def show
     # do the logic here
-    authorize @run
   end
 
   def update
