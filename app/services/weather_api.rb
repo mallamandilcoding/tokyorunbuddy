@@ -2,10 +2,10 @@ require 'open-uri'
 require 'json'
 
 class WeatherApi
-  def initialize(run)
-    @run = run
-    @latitude = @run.latitude
-    @longitude = @run.longitude
+  def initialize(location)
+    @location = location
+    @latitude = @location.latitude
+    @longitude = @location.longitude
   end
 
   def get_weather
@@ -28,7 +28,12 @@ class WeatherApi
   end
 end
 
-# @run
-# weather_api = WeatherApi.new(@run)
-# weather_for_my_run = weather_api.get_weather
-# weather_for_my_run["wind"]
+# If you want to test the code above, follow the steps below in rails console:
+# location = Location.create(name: "insert address here")
+# weather_api = WeatherApi.new(location)
+
+# This will return a hash
+# weather_for_my_location = weather_api.get_weather
+
+# To access a key in the hash
+# weather_for_my_location["wind"]
