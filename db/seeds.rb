@@ -59,19 +59,6 @@ location_images = [
   ["app/assets/images/tamagawa1.jpeg", "app/assets/images/tamagawa2.jpeg", "app/assets/images/tamagawa3.jpeg"]
 ]
 
-puts "Setting the time zone..."
-ENV['TZ'] = 'Asia/Tokyo'
-
-puts "Creating runs..."
-runs = [
-  { date: Date.new(2023, 3, 3), start_time: Time.new(2023, 3, 3, 20), end_time: Time.new(2023, 3, 3, 22), status: "scheduled", weather: "clear sky", wind: 8.0, humidity: 63.0, precipitation: 0.0, air_quality: 1, user: User.last, location: Location.first },
-  { date: Date.new(2023, 3, 4), start_time: Time.new(2023, 3, 4, 16), end_time: Time.new(2023, 3, 3, 18), status: "scheduled", weather: "clear sky", wind: 7.0, humidity: 65, precipitation: 0.0, air_quality: 1, user: User.last, location: Location.first },
-  { date: Date.new(2023, 3, 5), start_time: Time.new(2023, 3, 5, 16), end_time: Time.new(2023, 3, 5, 18), status: "suggested", weather: "few clouds: 11-25%", wind: 8.0, humidity: 67.0, precipitation: 0.0, air_quality: 1, user: User.last, location: Location.second },
-  { date: Date.new(2023, 3, 5), start_time: Time.new(2023, 3, 5, 12), end_time: Time.new(2023, 3, 5, 14), status: "suggested", weather: "scattered clouds: 25-50%", wind: 6.0, humidity: 69.0, precipitation: 0.0, air_quality: 1, user: User.last, location: Location.second },
-  { date: Date.new(2023, 3, 6), start_time: Time.new(2023, 3, 6, 19), end_time: Time.new(2023, 3, 6, 21), status: "suggested", weather: "few clouds: 11-25%", wind: 7.0, humidity: 64.0, precipitation: 0.0, air_quality: 1, user: User.last, location: Location.first },
-  { date: Date.new(2023, 2, 26), start_time: Time.new(2023, 2, 26, 16), end_time: Time.new(2023, 2, 26, 18), status: "completed", weather: "scattered clouds: 25-50%", wind: 8.0, humidity: 66.0, precipitation: 0.0, air_quality: 1, user: User.last, location: Location.last }
-]
-
 puts "Creating locations..."
 locations.each_with_index do |location, index|
   l = Location.new(location)
@@ -82,6 +69,18 @@ locations.each_with_index do |location, index|
   end
   l.save!
 end
+
+puts "Setting the time zone..."
+ENV['TZ'] = 'Asia/Tokyo'
+
+runs = [
+  { date: Date.new(2023, 3, 3), start_time: Time.new(2023, 3, 3, 20), end_time: Time.new(2023, 3, 3, 22), status: "scheduled", weather_description: "clear sky", wind: 8.0, humidity: 63.0, precipitation: 0.0, temperature: 18, air_quality: 1, user: User.last, location: Location.first },
+  { date: Date.new(2023, 3, 4), start_time: Time.new(2023, 3, 4, 16), end_time: Time.new(2023, 3, 3, 18), status: "scheduled", weather_description: "clear sky", wind: 7.0, humidity: 65, precipitation: 0.0, temperature: 18, air_quality: 1, user: User.last, location: Location.first },
+  { date: Date.new(2023, 3, 5), start_time: Time.new(2023, 3, 5, 16), end_time: Time.new(2023, 3, 5, 18), status: "suggested", weather_description: "few clouds: 11-25%", wind: 8.0, humidity: 67.0, precipitation: 0.0, temperature: 18, air_quality: 1, user: User.last, location: Location.second },
+  { date: Date.new(2023, 3, 5), start_time: Time.new(2023, 3, 5, 12), end_time: Time.new(2023, 3, 5, 14), status: "suggested", weather_description: "scattered clouds: 25-50%", wind: 6.0, humidity: 69.0, precipitation: 0.0, temperature: 18, air_quality: 1, user: User.last, location: Location.second },
+  { date: Date.new(2023, 3, 6), start_time: Time.new(2023, 3, 6, 19), end_time: Time.new(2023, 3, 6, 21), status: "suggested", weather_description: "few clouds: 11-25%", wind: 7.0, humidity: 64.0, precipitation: 0.0, temperature: 18, air_quality: 1, user: User.last, location: Location.first },
+  { date: Date.new(2023, 2, 26), start_time: Time.new(2023, 2, 26, 16), end_time: Time.new(2023, 2, 26, 18), status: "completed", weather_description: "scattered clouds: 25-50%", wind: 8.0, humidity: 66.0, precipitation: 0.0, temperature: 18, air_quality: 1, user: User.last, location: Location.last }
+]
 
 puts "Creating runs..."
 Run.create!(runs)

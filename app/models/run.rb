@@ -1,7 +1,12 @@
 class Run < ApplicationRecord
   belongs_to :user
-  validates :date, :start_time, :end_time, :status, :location, :description, :weather, :wind, :humidity, :precipitation, :air_quality, :user, presence:true
+
+
 
   has_many_attached :photos
+
+
+  belongs_to :location
+  validates :date, :start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :temperature, :air_quality, :user, presence: true
 
 end

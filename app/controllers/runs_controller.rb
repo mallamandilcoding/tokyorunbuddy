@@ -34,6 +34,6 @@ class RunsController < ApplicationController
   private
 
   def run_params
-    params.require(:run).permit(:date, :start_time, :end_time, :status, :location, :description, :weather, :wind, :humidity, :precipitation, :air_quality, photos: [])
+    params.require(:run).permit(:date, :start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :air_quality, :temperature)
   end
 end
