@@ -1,5 +1,7 @@
 class RunsController < ApplicationController
+  skip_after_action :verify_authorized, only: :suggestions
   def suggestions
+  @runnings = current_user.runs.where(status: "suggested")
   end
 
   def trends
