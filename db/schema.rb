@@ -66,6 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_030734) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.bigint "location_id", null: false
     t.integer "temperature"
     t.index ["location_id"], name: "index_runs_on_location_id"
@@ -84,8 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_030734) do
     t.string "last_name"
     t.string "time_of_day_preference"
     t.integer "temperature_preference"
-    t.string "provider"
-    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
