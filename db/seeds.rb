@@ -63,7 +63,14 @@ locations = [
 location_images = [
   ["app/assets/images/yamashita1.jpeg", "app/assets/images/yamashita2.jpeg", "app/assets/images/yamashita3.jpeg"],
   ["app/assets/images/palace1.jpeg", "app/assets/images/palace2.jpeg", "app/assets/images/palace3.jpeg"],
-  ["app/assets/images/tamagawa1.jpeg", "app/assets/images/tamagawa2.jpeg", "app/assets/images/tamagawa3.jpeg"]
+  ["app/assets/images/tamagawa1.jpeg", "app/assets/images/tamagawa2.jpeg", "app/assets/images/tamagawa3.jpeg"],
+  ["app/assets/images/meiji1.jpeg", "app/assets/images/meiji2.jpeg", "app/assets/images/meiji3.jpeg"],
+  ["app/assets/images/megurogawa1.jpeg", "app/assets/images/megurogawa2.jpeg", "app/assets/images/megurogawa3.jpeg"],
+  ["app/assets/images/odaiba1.jpeg", "app/assets/images/odaiba2.jpeg", "app/assets/images/odaiba3.jpeg"],
+  ["app/assets/images/yoyogi1.jpeg", "app/assets/images/yoyogi2.jpeg", "app/assets/images/yoyogi3.jpeg"],
+  ["app/assets/images/komazawa1.jpeg", "app/assets/images/komazawa2.jpeg", "app/assets/images/komazawa3.jpeg"],
+  ["app/assets/images/koganei1.jpeg", "app/assets/images/koganei2.jpeg", "app/assets/images/koganei3.jpeg"],
+  ["app/assets/images/sumidagawa1.jpeg", "app/assets/images/sumidagawa2.jpeg", "app/assets/images/sumidagawa3.jpeg"]
 ]
 
 puts "Creating locations..."
