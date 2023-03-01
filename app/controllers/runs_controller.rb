@@ -1,5 +1,6 @@
 class RunsController < ApplicationController
   def suggestions
+    authorize @run
   end
 
   def trends
@@ -12,7 +13,8 @@ class RunsController < ApplicationController
 
   def edit
     # do the logic here
-    authorize @run
+    # @run = Run.find(params[:id])
+    # authorize @run
   end
 
   def show
