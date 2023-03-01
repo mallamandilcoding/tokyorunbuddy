@@ -1,5 +1,29 @@
 <div class="scheduledruns-div">
+  <h1>Coming up</h1>
   <% runs.each do |run| %>
-    <p><%= run.date %></p>
+    <div class="info-div col-6 mb-3 p-3 d-flex justify-content-between">
+      <div class="date-div">
+
+        <% day = run.date.day %>
+        <% suffix = case day%>
+        <% when 1, 21, 31 then 'st'%>
+        <% when 2, 22 then 'nd'%>
+        <% when 3, 23 then 'rd'%>
+        <% else 'th' %>
+        <%end%>
+        <%formatted_date = run.date.strftime("%B #{day}#{suffix}")%>
+        <p><%= formatted_date %></p>
+        <p><%= run.date.strftime("%A") %></p>
+      </div>
+      <div class="timeandplacediv">
+        <p><i class="far fa-clock"></i><%= run.start_time.strftime("%H:%M") %></p>
+        <p><i class="fas fa-map-marker-alt"></i><%= run.location.name %></p>
+      </div>
+      <div class="iconandtemp">
+        <span class="weather-icon"><i class="far fa-sun"></i></span>
+        <p><%= run.temperature %></p>
+      </div>
+    </div>
   <% end %>
+
 </div>
