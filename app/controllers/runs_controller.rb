@@ -1,5 +1,6 @@
 class RunsController < ApplicationController
-  skip_after_action :verify_authorized, only: [:suggestions, :show]
+  skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show]
+
   def suggestions
   @runnings = current_user.runs.where(status: "suggested")
   end
@@ -14,7 +15,9 @@ class RunsController < ApplicationController
 
   def edit
     # do the logic here
-    authorize @run
+    # @run = Run.new
+    @run = Run.find(params[:id])
+    # authorize @run
   end
 
   def show
@@ -22,8 +25,15 @@ class RunsController < ApplicationController
   end
 
   def update
+    # raise;
+    @run = Run.find(params[:id])
+    if @run.update(run_params)
+      redirect_to run_path(@run)
+    else
+      render :edit, status: :unprocessable_entity
+    end
     # do the logic here
-    authorize @run
+    # authorize @run
   end
 
   def destroy
@@ -35,5 +45,6 @@ class RunsController < ApplicationController
 
   def run_params
     params.require(:run).permit(:date, :start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :air_quality, :temperature)
+
   end
 end
