@@ -51,7 +51,8 @@ puts "Creating locations..."
 locations = [
   { name: "Yamashita Park", latitude: 35.2644, longitude: 139.3859, description: "Yamashita Park (山下公園, Yamashita Kōen) is a public park that stretches about 750 meters along Yokohama's waterfront. The park is about a hundred meters wide, and consists mostly of open green space. One of the park's main features is a wide path that runs along the water. It is usually quite busy, with many people enjoying the view of the bay and the ships passing by. At the park's southern end, the path leads into the Rinkosen promenade, which passes by the Osanbashi Pier and leads to Minato Mirai. The walk is a pleasant way to travel between the areas." },
   { name: "Imperial Palace Course", latitude: 35.6825, longitude: 139.7521, description: "The current Imperial Palace (皇居, Kōkyo) is located on the former site of Edo Castle, a large park area surrounded by moats and massive stone walls in the center of Tokyo, a short walk from Tokyo Station. The palace lies at the heart of Tokyo. The 5 km circuit around the palace is extremely popular among runners, and many races have been held there over the years." },
-  { name: "Tamagawa Futako Bridge Park", latitude: 35.6146314, longitude: 139.5998008, description: "Futako-Tamagawa Park (二子玉川公園, Futako-Tamagawa Kōen) beside the Tama River is about an eight-minute walk from the station nearby. The large park is perfect for families with kids or pets. The open banks facing the river are slightly inclined, and it's here that you can get a picturesque view of the sunset over Tokyo on a clear day, you’ll be able to see Mt Fuji in the distance. For runners, head for the long running course along the Tama River, which is one of the best ways to go on a long, uninterrupted run in Tokyo." }
+  { name: "Tamagawa Futako Bridge Park", latitude: 35.6146314, longitude: 139.5998008, description: "Futako-Tamagawa Park (二子玉川公園, Futako-Tamagawa Kōen) beside the Tama River is about an eight-minute walk from the station nearby. The large park is perfect for families with kids or pets. The open banks facing the river are slightly inclined, and it's here that you can get a picturesque view of the sunset over Tokyo on a clear day, you'll be able to see Mt Fuji in the distance. For runners, head for the long running course along the Tama River, which is one of the best ways to go on a long, uninterrupted run in Tokyo." }
+]
 
 location_images = [
   ["app/assets/images/yamashita1.jpeg", "app/assets/images/yamashita2.jpeg", "app/assets/images/yamashita3.jpeg"],
@@ -83,4 +84,3 @@ locations.each_with_index do |location, index|
 end
 
 puts "Finished!"
-
