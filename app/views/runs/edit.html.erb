@@ -1,3 +1,17 @@
 <div class="container-fluid">
-
+  <div class="edit_container_div">
+    <div class="edit_form">
+      <%= simple_form_for @run do |f| %>
+        <%= f.input :date,as: :date,html5: true %>
+        <%= f.input :start_time %>
+        <%= f.input :location_id %>
+        <%= f.button :button,class: "btn btn-primary" do %>
+          <i class="fas fa-undo"></i><span>Go Back</span>
+        <% end %>
+        <%= f.button :submit,class: "btn btn-warning" do %>
+          <i class="fas fa-pen"></i><span>Submit</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

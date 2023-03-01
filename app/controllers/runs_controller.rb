@@ -1,4 +1,5 @@
 class RunsController < ApplicationController
+  skip_after_action :verify_authorized, only: :edit
   def suggestions
     authorize @run
   end
@@ -13,6 +14,7 @@ class RunsController < ApplicationController
 
   def edit
     # do the logic here
+    @run = Run.new
     # @run = Run.find(params[:id])
     # authorize @run
   end
