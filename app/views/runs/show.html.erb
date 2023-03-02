@@ -1,16 +1,42 @@
-<div class="d-flex justfify-content-center card-date-time">
-  <div class="d-flex flex-column run-date">
-    <div class="day"></div>
-    <div class="date"></div>
+<div class="bg-gradient">
+  <div class="run-image">
+    <img src="https://media.istockphoto.com/id/1324624694/photo/fitness-woman-running-training-for-marathon-on-sunny-coast-trail.jpg?b=1&s=170667a&w=0&k=20&c=rMriHt4PKzAxYZiyZMuA_pJiniQGLyXZfQ8gh5kehTk=" class="img-fluid w-100">
   </div>
-  <div class="time"></div>
-</div>
-<div class="d-flex flex-column align-items-start text-primary card-location-info">
-  <h1><strong>Imperial Palace</strong></h1>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-</div>
-<div class="d-flex flex-column position-relative text-primary card-weather">
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"><i class="fa-solid fa-temperature-high"></i>20°<span class="visually-hidden">Temperature</span></span>
-  <h1>Weather Forecast</h1>
-  <p>Here is a brief description of the weather forecast today.</p>
-</div>
+  <div class="container-fluid vh-100 pt-3" style="
+    /* background-image: linear-gradient(#0096C7, #FFFFFF); */
+    background-image: linear-gradient(#0096C7 -20%, #FFFFFF 30%);">
+    <div class="d-flex justify-content-between mx-3 card-date-time">
+      <div class="d-flex flex-column run-date">
+        <div class="day">
+          <h1 class="display-4"><%= @run.date.strftime('%A') %></h1>
+        </div>
+        <h1 class="display-4"><%= @run.date.strftime("%b %e , %Y") %></h1>
+      </div>
+      <div class="time"><b>
+          <h1 class="display-1"><%= @run.start_time.strftime('%H:%M') %></h1>
+        </b></div>
+    </div>
+    <div class="d-flex flex-column align-items-start text-primary p-3 card-location-info">
+      <h1 class="border-bottom w-100"><strong><%= @run.location.name %></strong></h1>
+      <p><%= @run.location.description %></p>
+    </div>
+    <div class="d-flex flex-column position-relative align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather">
+      <div class="position-absolute top-0 start-100 translate-middle">
+        <h1 class="display-2"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"><i class="fa-solid fa-temperature-high"></i> 12°<span></h1>
+          </div>
+          <h1 class="border-bottom w-100">Weather Forecast</h1>
+          <p><%= @run.weather_description.capitalize %></p>
+          <div class="d-flex flex-column weather-details">
+            <div><i class="fa-sharp fa-solid fa-droplet-percent"></i>HUMIDITY <%= @run.humidity %></div>
+            <div><i class="fa-solid fa-wind"></i>  WIND <%= @run.wind %></div>
+            <div><i class="fa-solid fa-sun"></i>  WEATHER <%= @run.weather_description %></div>
+            <div><i class="fa-light fa-braille"></i>  AIR QUALITY</div>
+            <div><i class="fa-solid fa-cloud-snow"></i>  PRECIPITATION <%= @run.precipitation %></div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around my-5">
+          <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
+          <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
+          <%= link_to 'ADD TO CALENDAR',suggestions_path(@runs), class: 'btn rounded-4 btn-warning text-white btn-sm' %></div>
+      </div>
+    </div>
