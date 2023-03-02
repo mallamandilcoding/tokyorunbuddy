@@ -1,8 +1,32 @@
 .scheduledruns-div{
 
+  h1{
+    color: #03045E;
+  }
+
+  .each-scheduled-runs-div{
+    .dot-circle{
+      color:#FF9E00;
+    }
+  }
+
   .info-div{
     background-color: #FF9E00;
     border-radius: 4px;
     color: white;
+  }
+
+  p{
+    margin:0;
+    padding:0;
+  }
+
+  .iconandtemp{
+    text-align: center;
+    .weather-icon{
+      color: #FF5400;
+      // text-align: center;
+      //  font-size: 24px;
+    }
   }
 }
