@@ -3,6 +3,7 @@ class RunsController < ApplicationController
 
   def suggestions
   @runnings = current_user.runs.where(status: "suggested")
+  @runs = policy_scope(Run)
   end
 
   def trends
