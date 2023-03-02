@@ -2,6 +2,7 @@ class RunsController < ApplicationController
   skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show]
 
   def suggestions
+    @message = "Let's go for a run!"
     @upcoming_runs = current_user.runs.where(status: "scheduled").order(date: :asc).limit(3)
     @suggested_runs = current_user.runs.where(status: "suggested")
     # @runs = policy_scope(Run)
