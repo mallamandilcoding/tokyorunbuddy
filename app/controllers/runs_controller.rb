@@ -2,8 +2,9 @@ class RunsController < ApplicationController
   skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show]
 
   def suggestions
-  @runnings = current_user.runs.where(status: "suggested")
-  @runs = policy_scope(Run)
+    @upcoming_runs = current_user.runs.where(status: "scheduled").order(date: :asc).limit(3)
+    @suggested_runs = current_user.runs.where(status: "suggested")
+    # @runs = policy_scope(Run)
   end
 
   def trends
@@ -11,7 +12,11 @@ class RunsController < ApplicationController
 
   def index
     # @bookings = policy_scope(Booking) (eg)
-    @runs = policy_scope(Run)
+    # @runs = policy_scope(Run)
+    @upcoming_runs = current_user.runs.where(status: "scheduled")
+    @suggested_runs = current_user.runs.where(status: "suggested")
+    @completed_runs = current_user.runs.where(status: "completed")
+    @incomplete_runs = current_user.runs.where(status: "incompleted")
   end
 
   def edit
