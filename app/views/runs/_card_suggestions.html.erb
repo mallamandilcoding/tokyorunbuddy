@@ -1,29 +1,29 @@
- <div class="col">
-  <% runs.each do|run| %>
-    <div class="card-run">
-
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="d-flex flex-column card-run-infos align-items-center flex-grow-1">
-        <div class="d-flex flex-column pt-3card-run-text text-center">
-          <h2><strong><%= run.date.strftime("%A, %B %d") %></strong></h2>
-          <h2><span><%= run.start_time.strftime("%H:%M") %></span> at <span><%= run.location.name %></span></h2>
-        </div>
-        <span class="border-bottom "></span>
-        <div class="d-flex justify-content-between  pt-4 w-100 card-run-weather-info">
-          <div><i class="fa-solid fa-wind me-1"></i><span class="wind-font me-1">Wind</span><%= run.wind.to_i %></div>
-          <div>
-          <% w = run.weather_description %>
-          <% if w.include? "cloud" %>
-            <i class="fa-solid fa-cloud"></i> Cloudy
-          <% elsif w.include? "rainy" %>
-            <i class="fas fa-cloud-showers-heavy"></i> Rainy
-          <% else %>
-            <i class="fa-solid fa-sun me-1"></i> Sunny
-          <% end %>
+<div class="row">
+  <div class="col">
+    <h1><strong>Suggestions</strong></h1>
+    <% runs.each do|run| %>
+      <%= link_to run_path(run), class: "card-run", style: 'text-decoration: none;' do %>
+        <%= cl_image_tag run.location.photos.first.key, class: "rounded-3" %>
+        <div class="d-flex flex-column card-run-infos align-items-center flex-grow-1">
+          <div class="d-flex flex-column pt-3card-run-text text-center">
+            <h2><strong><%= run.date.strftime("%A, %B %d") %></strong></h2>
+            <h2><span><%= run.start_time.strftime("%H:%M") %></span> <span><%= run.location.name %></span></h2>
           </div>
-          <div><i class="fa-solid fa-temperature-high me-1"></i><%= run.temperature %><span>&#176;</span>C</div>
+          <div class="d-flex justify-content-between  pt-1 w-100 card-run-weather-info">
+            <div><i class="fa-solid fa-wind me-1"></i><span class="wind-font me-1">Wind</span><%= run.wind.to_i %></div>
+            <div>
+              <% w = run.weather_description %>
+              <% if w.include? "cloud" %>
+                <i class="fa-solid fa-cloud"></i> Cloudy
+              <% elsif w.include? "rainy" %>
+                <i class="fas fa-cloud-showers-heavy"></i> Rainy
+              <% else %>
+                <i class="fa-solid fa-sun me-1"></i> Sunny
+              <% end %>
+            </div>
+            <div><i class="fa-solid fa-temperature-high me-1"></i><%= run.temperature %><span>&#176;</span>C</div>
+          </div>
         </div>
       </div>
-    </div>
   <% end %>
  </div>

@@ -5,47 +5,6 @@ Run.destroy_all
 Location.destroy_all
 User.destroy_all
 
-# puts "Creating users..."
-# User.create!(
-#   first_name: "Mandil",
-#   last_name: "Malla",
-#   email: "mallamandilcoding@gmail.com",
-#   password: 123123,
-#   time_of_day_preference: "morning",
-#   temperature_preference: 15
-# )
-# User.create!(
-#   first_name: "Emika",
-#   last_name: "Sangu",
-#   email: "em888ka@gmail.com",
-#   password: 123123,
-#   time_of_day_preference: "afternoon",
-#   temperature_preference: 20
-# )
-# User.create!(
-#   first_name: "Kurisu",
-#   last_name: "Sutairusu",
-#   email: "sutairusu@me.com",
-#   password: 123123,
-#   time_of_day_preference: "evening",
-#   temperature_preference: 10
-# )
-# User.create!(
-#   first_name: "John",
-#   last_name: "Baker",
-#   email: "john.baker@gmail.com",
-#   password: 123123,
-#   time_of_day_preference: "morning",
-#   temperature_preference: 20
-# )
-# User.create!(
-#   first_name: "Keina",
-#   last_name: "Morikawa",
-#   email: "keina.morikawa@me.com",
-#   password: 123123,
-#   time_of_day_preference: "evening",
-#   temperature_preference: 15
-# )
 users = [
   {
     first_name: "Mandil",
@@ -90,19 +49,19 @@ users = [
 ]
 
 user_images = [
-  "app/assets/images/mandil.jpeg",
-  "app/assets/images/emika.jpeg",
-  "app/assets/images/kurisu.jpeg",
-  "app/assets/images/john.jpeg",
-  "app/assets/images/keina.jpeg"
+  ["app/assets/images/mandil.jpeg"],
+  ["app/assets/images/emika.jpeg"],
+  ["app/assets/images/kurisu.jpeg"],
+  ["app/assets/images/john.jpeg"],
+  ["app/assets/images/keina.jpeg"]
 ]
 
 puts "Creating users..."
-users.each do |user|
+users.each_with_index do |user, index|
   u = User.new(user)
-  # file_paths = user_images[index]
-  user_images.each do |user_image|
-    file = File.open(user_image)
+  file_paths = user_images[index]
+  file_paths.each do |file_path|
+    file = File.open(file_path)
     u.photo.attach(io: file, filename: "#{u.first_name}.jpeg")
   end
   u.save!
