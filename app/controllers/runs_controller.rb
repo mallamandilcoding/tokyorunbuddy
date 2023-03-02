@@ -1,5 +1,5 @@
 class RunsController < ApplicationController
-  skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show]
+  skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show, :trends]
 
   def suggestions
     @upcoming_runs = current_user.runs.where(status: "scheduled").order(date: :asc).limit(3)
@@ -8,15 +8,39 @@ class RunsController < ApplicationController
   end
 
   def trends
+    @completed_runs = current_user.runs.where(status: "completed")
+    @totalruns = @completed_runs.count
+    count_morn = 0
+    count_afternoon = 0
+    count_evening = 0
+    temperature = 0
+    @completed_runs.each do |t|
+      # time = Time.parse(t.start_time.strftime("%I:%M %p"))
+      time = Time.parse("1pm")
+      temperature += t.temperature
+      if time < Time.parse("12pm")
+        count_morn += 1
+      elsif time > Time.parse("12pm") && time < Time.parse("6pm")
+        count_afternoon += 1
+      else
+        count_evening += 1
+      end
+    end
+    max_variable = { 'morning' => count_morn, 'afternoon' => count_afternoon, 'evening' => count_evening}.max_by{|k, v| v}
+    @time_of_day = max_variable[0]
+    @average_temperature = temperature / @totalruns
+
+
+    # authorize @completed_runs
   end
 
   def index
     # @bookings = policy_scope(Booking) (eg)
     # @runs = policy_scope(Run)
-    @upcoming_runs = current_user.runs.where(status: "scheduled")
+    @scheduled_runs = current_user.runs.where(status: "scheduled")
     @suggested_runs = current_user.runs.where(status: "suggested")
     @completed_runs = current_user.runs.where(status: "completed")
-    @incomplete_runs = current_user.runs.where(status: "incompleted")
+    @incomplete_runs = current_user.runs.where(status: "incomplete")
   end
 
   def edit
@@ -33,6 +57,7 @@ class RunsController < ApplicationController
   def update
     # raise;
     @run = Run.find(params[:id])
+    @run.status = "scheduled"
     if @run.update(run_params)
       redirect_to run_path(@run)
     else
