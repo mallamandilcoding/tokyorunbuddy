@@ -1,6 +1,5 @@
-<div class="row">
-  <div class="col">
-    <h1><strong>Suggestions</strong></h1>
+<div class="col">
+
     <% runs.each do|run| %>
       <%= link_to run_path(run), class: "card-run", style: 'text-decoration: none;' do %>
         <%= cl_image_tag run.location.photos.first.key, class: "rounded-3" %>
@@ -24,6 +23,6 @@
             <div><i class="fa-solid fa-temperature-high me-1"></i><%= run.temperature %><span>&#176;</span>C</div>
           </div>
         </div>
-      </div>
-  <% end %>
- </div>
+      <% end %>
+    <% end %>
+  </div>
