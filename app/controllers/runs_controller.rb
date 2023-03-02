@@ -22,7 +22,7 @@ class RunsController < ApplicationController
   end
 
   def show
-    # do the logic here
+    @run = Run.find(params[:id])
   end
 
   def update
