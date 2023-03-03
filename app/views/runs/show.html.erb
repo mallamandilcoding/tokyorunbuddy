@@ -25,9 +25,9 @@
         <button class="btn btn-link-primary" data-action="read-more#toggle">Read more</button>
       </div>
     </div>
-    <div class="d-flex flex-column position-relative align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather">
+    <div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
       <div class="position-absolute top-0 start-100 translate-middle">
-        <h1 class="display-2"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"><i class="fa-solid fa-temperature-high"></i> 12°<span></h1>
+        <h1 class="display-2"><span id="temperature" class="top-0 translate-middle badge rounded-pill bg-primary"><i class="fa-solid fa-temperature-high"></i> 12°<span></h1>
           </div>
           <h1 class="border-bottom w-100">Weather Forecast</h1>
           <p><%= @run.weather_description.capitalize %></p>

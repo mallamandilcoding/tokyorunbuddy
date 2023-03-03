@@ -7,3 +7,12 @@
   border-radius: 7px;
   margin: 12px;
 }
+
+#temperature-card {
+  position: relative;
+}
+
+#temperature {
+    position: absolute;
+    left: -56px;
+}
