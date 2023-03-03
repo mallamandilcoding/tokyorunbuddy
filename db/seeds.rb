@@ -152,10 +152,8 @@ locations.each_with_index do |location, index|
     l.photos.attach(io: file, filename: "#{l.name}.jpeg")
   end
   l.save!
+  puts "#{l.name} has been created successfully!" # add this line
 end
-
-puts "Setting the time zone..."
-ENV['TZ'] = 'Asia/Tokyo'
 
 locations = Location.all
 
@@ -234,7 +232,7 @@ runs = [
     end_time: Time.new(2023, 2, 26, 18),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
-    wind: 8.0,
+    wind: 5.0,
     humidity: 66.0,
     precipitation: 0.0,
     temperature: 12,
@@ -262,7 +260,7 @@ runs = [
     end_time: Time.new(2023, 2, 19, 18),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
-    wind: 8.0,
+    wind: 7.0,
     humidity: 66.0,
     precipitation: 0.0,
     temperature: 14,
@@ -276,7 +274,7 @@ runs = [
     end_time: Time.new(2023, 2, 18, 18),
     status: "completed",
     weather_description: "clear sky",
-    wind: 8.0,
+    wind: 5.0,
     humidity: 66.0,
     precipitation: 0.0,
     temperature: 11,
@@ -290,7 +288,7 @@ runs = [
     end_time: Time.new(2023, 2, 12, 18),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
-    wind: 8.0,
+    wind: 6.0,
     humidity: 66.0,
     precipitation: 0.0,
     temperature: 9,
