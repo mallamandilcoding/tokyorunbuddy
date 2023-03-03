@@ -1,0 +1,19 @@
+<%# <div id="carouselRuns" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselRuns" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselRuns" data-slide-to="1"></li>
+    <li data-target="#carouselRuns" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag run.location.photos.first.key %>
+</div>
+<div class="carousel-item">
+  <%= image_tag run.location.photos.second.key %>
+</div>
+<div class="carousel-item">
+  <%= image_tag run.location.photos.third.key %>
+</div>
+</div>
+</div>
+ %>
