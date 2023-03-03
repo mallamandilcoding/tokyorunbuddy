@@ -16,9 +16,14 @@
           <h1 class="display-1"><%= @run.start_time.strftime('%H:%M') %></h1>
         </b></div>
     </div>
-    <div class="d-flex flex-column align-items-start text-primary p-3 card-location-info">
+    <div class ="d-flex flex-column text-primary p-3 card-location-info">
       <h1 class="border-bottom w-100"><strong><%= @run.location.name %></strong></h1>
-      <p><%= @run.location.description %></p>
+      <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Less">
+        <p class="my-content" data-read-more-target="content">
+          <%= @run.location.description %>
+        </p>
+        <button class="btn btn-link-primary" data-action="read-more#toggle">Read more</button>
+      </div>
     </div>
     <div class="d-flex flex-column position-relative align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather">
       <div class="position-absolute top-0 start-100 translate-middle">
@@ -38,5 +43,14 @@
           <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
           <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
           <%= link_to 'ADD TO CALENDAR',suggestions_path(@runs), class: 'btn rounded-4 btn-warning text-white btn-sm' %></div>
+      </div>
+    </div>
+    <div class ="d-flex flex-column text-primary p-3 card-location-info">
+      <h1 class="border-bottom w-100"><strong><%= @run.location.name %></strong></h1>
+      <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Less">
+        <p class="my-content" data-read-more-target="content">
+          <%= @run.location.description %>
+        </p>
+        <button data-action="read-more#toggle">Read more</button>
       </div>
     </div>
