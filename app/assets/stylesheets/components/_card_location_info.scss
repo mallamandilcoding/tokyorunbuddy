@@ -1,5 +1,5 @@
 .card-location-info {
-  overflow: hidden;
+  // overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -7,5 +7,6 @@
   align-items: center;
   border-radius: 7px;
   margin: 12px;
-
+  height: auto; /* set the height of the card container */
+  overflow-y: auto; /* add a scrollbar when the content overflows */
 }
