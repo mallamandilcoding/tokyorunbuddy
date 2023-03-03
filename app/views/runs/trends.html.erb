@@ -6,18 +6,17 @@
   <div class="row">
     <h1 class="text-primary text-center">Trends</h1>
     <div class="trend shadow-sm rounded p-3 text-warning">
-      <h3 class="text-center">Some Summary From Your Completed Runs</h3>
-        <div class="totalruns">
-          <span>Total no of runs </span>
-          <strong class="fs-5"><%= @totalruns %></strong>   <i class="fas fa-running"></i>
-        </div>
-        <div class="time-of-days">
-          <span>You seem to prefer </span><strong class="fs-5"><%= @time_of_day %></strong> <span>to run</span> <i class="fas fa-sun"></i>
-        </div>
-        <div class="temperature">
-          <span>Average temperature of </span> <strong class="fs-5"><%= @average_temperature%> <span>&#176;</span>C</strong> <i class="fas fa-thermometer-three-quarters"></i>
-        </div>
+      <h3 class="text-center">A Summary of Your Completed Runs</h3>
+      <div class="totalruns">
+        <span>Total number of runs: </span>
+        <strong class="fs-5"><%= @totalruns %></strong>  <i class="fas fa-running"></i>
+      </div>
+      <div class="time-of-days">
+        <span>You seem to prefer running in the </span><strong class="fs-5"><%= @time_of_day %></strong>.  <i class="fas fa-sun"></i>
+      </div>
+      <div class="temperature">
+        <span>Average temperature for all runs: </span> <strong class="fs-5"><%= @average_temperature%> <span>&#176;</span>C</strong>  <i class="fas fa-thermometer-three-quarters"></i>
+      </div>
     </div>
   </div>
-
 </div>
