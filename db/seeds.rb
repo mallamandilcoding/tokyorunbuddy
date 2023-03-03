@@ -152,7 +152,7 @@ locations.each_with_index do |location, index|
     l.photos.attach(io: file, filename: "#{l.name}.jpeg")
   end
   l.save!
-  puts "Location number #{l[index] + 1} created!"
+  puts "#{l.name} has been created successfully!" # add this line
 end
 
 locations = Location.all
@@ -160,8 +160,8 @@ locations = Location.all
 runs = [
   {
     date: Date.new(2023, 3, 3),
-    start_time: Time.local(2023, 3, 3, 20),
-    end_time: Time.local(2023, 3, 3, 22),
+    start_time: Time.new(2023, 3, 3, 20),
+    end_time: Time.new(2023, 3, 3, 22),
     status: "scheduled",
     weather_description: "clear sky",
     wind: 8.0, humidity: 63.0,
@@ -173,8 +173,8 @@ runs = [
   },
   {
     date: Date.new(2023, 3, 4),
-    start_time: Time.local(2023, 3, 4, 16),
-    end_time: Time.local(2023, 3, 4, 18),
+    start_time: Time.new(2023, 3, 4, 16),
+    end_time: Time.new(2023, 3, 4, 18),
     status: "scheduled",
     weather_description: "clear sky",
     wind: 7.0,
@@ -187,8 +187,8 @@ runs = [
   },
   {
     date: Date.new(2023, 3, 5),
-    start_time: Time.local(2023, 3, 5, 16),
-    end_time: Time.local(2023, 3, 5, 18),
+    start_time: Time.new(2023, 3, 5, 16),
+    end_time: Time.new(2023, 3, 5, 18),
     status: "suggested",
     weather_description: "few clouds: 11-25%",
     wind: 8.0,
@@ -201,8 +201,8 @@ runs = [
   },
   {
     date: Date.new(2023, 3, 5),
-    start_time: Time.local(2023, 3, 5, 12),
-    end_time: Time.local(2023, 3, 5, 14),
+    start_time: Time.new(2023, 3, 5, 12),
+    end_time: Time.new(2023, 3, 5, 14),
     status: "suggested",
     weather_description: "scattered clouds: 25-50%",
     wind: 6.0,
@@ -214,8 +214,8 @@ runs = [
     location: locations.sample
   },
   { date: Date.new(2023, 3, 6),
-    start_time: Time.local(2023, 3, 6, 19),
-    end_time: Time.local(2023, 3, 6, 21),
+    start_time: Time.new(2023, 3, 6, 19),
+    end_time: Time.new(2023, 3, 6, 21),
     status: "suggested",
     weather_description: "few clouds: 11-25%",
     wind: 7.0,
@@ -228,8 +228,8 @@ runs = [
   },
   {
     date: Date.new(2023, 2, 26),
-    start_time: Time.local(2023, 2, 26, 16),
-    end_time: Time.local(2023, 2, 26, 18),
+    start_time: Time.new(2023, 2, 26, 16),
+    end_time: Time.new(2023, 2, 26, 18),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 5.0,
@@ -242,8 +242,8 @@ runs = [
   },
   {
     date: Date.new(2023, 2, 25),
-    start_time: Time.local(2023, 2, 25, 16),
-    end_time: Time.local(2023, 2, 25, 18),
+    start_time: Time.new(2023, 2, 25, 16),
+    end_time: Time.new(2023, 2, 25, 18),
     status: "completed",
     weather_description: "few clouds: 11-25%",
     wind: 8.0,
@@ -256,8 +256,8 @@ runs = [
   },
   {
     date: Date.new(2023, 2, 19),
-    start_time: Time.local(2023, 2, 19, 16),
-    end_time: Time.local(2023, 2, 19, 18),
+    start_time: Time.new(2023, 2, 19, 16),
+    end_time: Time.new(2023, 2, 19, 18),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 7.0,
@@ -270,8 +270,8 @@ runs = [
   },
   {
     date: Date.new(2023, 2, 18),
-    start_time: Time.local(2023, 2, 18, 16),
-    end_time: Time.local(2023, 2, 18, 18),
+    start_time: Time.new(2023, 2, 18, 16),
+    end_time: Time.new(2023, 2, 18, 18),
     status: "completed",
     weather_description: "clear sky",
     wind: 5.0,
@@ -284,8 +284,8 @@ runs = [
   },
   {
     date: Date.new(2023, 2, 12),
-    start_time: Time.local(2023, 2, 12, 16),
-    end_time: Time.local(2023, 2, 12, 18),
+    start_time: Time.new(2023, 2, 12, 16),
+    end_time: Time.new(2023, 2, 12, 18),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 6.0,
