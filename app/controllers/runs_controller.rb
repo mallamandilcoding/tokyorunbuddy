@@ -2,19 +2,27 @@ class RunsController < ApplicationController
   skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show, :trends]
 
   def suggestions
-    @message = "Let's go for a run!"
+    @message1 = "Welcome, "
+    @message2 = "Let's go for a run!"
+    @color = "warning"
     @upcoming_runs = current_user.runs.where(status: "scheduled").order(date: :asc).limit(3)
     @suggested_runs = current_user.runs.where(status: "suggested")
     # @runs = policy_scope(Run)
   end
 
   def trends
+    @color = "primary"
     @completed_runs = current_user.runs.where(status: "completed")
+    @message1 = "Good job, "
+    @message2 = "Let's schedule another run."
   end
 
   def index
     # @bookings = policy_scope(Booking) (eg)
-    # @runs = policy_scope(Run)
+    @color = "primary"
+    @runs = policy_scope(Run)
+    @message1 = "Welcome, "
+    @message2 = "Ready for your next run?"
     @upcoming_runs = current_user.runs.where(status: "scheduled")
     @suggested_runs = current_user.runs.where(status: "suggested")
     @completed_runs = current_user.runs.where(status: "completed")
