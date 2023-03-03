@@ -1,5 +1,5 @@
 class RunsController < ApplicationController
-  skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show]
+  skip_after_action :verify_authorized, only: [:edit, :update, :suggestions, :show, :trends]
 
   def suggestions
     @message = "Let's go for a run!"
@@ -9,6 +9,7 @@ class RunsController < ApplicationController
   end
 
   def trends
+    @completed_runs = current_user.runs.where(status: "completed")
   end
 
   def index
