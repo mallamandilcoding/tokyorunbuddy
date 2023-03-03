@@ -1,11 +1,11 @@
-<div class="bg-gradient">
+<div class="bg-gradient" data-controller="scheduled">
   <div class="run-image">
-    <%# <%= render 'runs/show_carousel' %> %>
+    <%= render 'runs/show_carousel', run: @run %>
   </div>
-  <div class="container-fluid vh-100 pt-3" style="
-    /* background-image: linear-gradient(#0096C7, #FFFFFF); */
-    background-image: linear-gradient(#0096C7 -20%, #FFFFFF 30%);">
-    <div class="d-flex justify-content-between mx-3 card-date-time">
+  <div data-scheduled-target="bgcolor" class="container-fluid vh-100 pt-3" style="
+
+    <%= @scheduled ? "background-image: linear-gradient(#FF9E00 -20%, #FFFFFF 30%);" : "background-image: linear-gradient(#0096C7 -20%, #FFFFFF 30%);" %> ">
+    <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
       <div class="d-flex flex-column run-date">
         <div class="day">
           <h1 class="display-4"><%= @run.date.strftime('%A') %></h1>
@@ -27,7 +27,7 @@
     </div>
     <div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
       <div class="position-absolute top-0 start-100 translate-middle">
-        <h1 class="display-2"><span id="temperature" class="top-0 translate-middle badge rounded-pill bg-primary"><i class="fa-solid fa-temperature-high"></i> 12°<span></h1>
+        <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"><i class="fa-solid fa-temperature-high"></i> 12°<span></h1>
           </div>
           <h1 class="border-bottom w-100">Weather Forecast</h1>
           <p><%= @run.weather_description.capitalize %></p>
@@ -42,6 +42,10 @@
         <div class="d-flex justify-content-around my-5">
           <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
           <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
-          <%= link_to 'ADD TO CALENDAR',suggestions_path(@runs), class: 'btn rounded-4 btn-warning text-white btn-sm' %></div>
+          <%= simple_form_for(@run, remote: true, data: {action: "submit->scheduled#change"}) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}}  %>
+            <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: {
+    scheduled_target: "button" } %>
+          <% end %></div>
       </div>
     </div>

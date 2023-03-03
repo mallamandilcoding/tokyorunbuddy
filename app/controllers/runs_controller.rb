@@ -30,15 +30,20 @@ class RunsController < ApplicationController
 
   def show
     @run = Run.find(params[:id])
+    @scheduled = @run.status == "scheduled"
   end
 
   def update
     # raise;
     @run = Run.find(params[:id])
-    if @run.update(run_params)
-      redirect_to run_path(@run)
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @run.update(run_params)
+        format.html { redirect_to run_path(@run) }
+        format.json
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json
+      end
     end
     # do the logic here
     # authorize @run
