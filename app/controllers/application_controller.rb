@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def after_sign_in_path_for(resource)
+    # return the path you want to redirect to after sign in
+    suggestions_path
+  end
+
   private
 
   def skip_pundit?
