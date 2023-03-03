@@ -1,11 +1,13 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-lewagon bg-<%= @color %>">
   <div class="container-fluid">
     <%= link_to suggestions_path, class: "navbar-brand" do %>
       <%= image_tag "TRB.png" %>
     <% end %>
     <div class= "message-div">
+      <% if user_signed_in?  %>
       <p><%= @message1 %><%= current_user.first_name %></p>
       <p><%= @message2 %></p>
+      <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

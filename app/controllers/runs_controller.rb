@@ -43,10 +43,10 @@ class RunsController < ApplicationController
     @runs = policy_scope(Run)
     @message1 = "Welcome, "
     @message2 = "Ready for your next run?"
-    @upcoming_runs = current_user.runs.where(status: "scheduled")
-    @suggested_runs = current_user.runs.where(status: "suggested")
-    @completed_runs = current_user.runs.where(status: "completed")
-    @incomplete_runs = current_user.runs.where(status: "incompleted")
+    # @upcoming_runs = current_user.runs.where(status: "scheduled")
+    # @suggested_runs = current_user.runs.where(status: "suggested")
+    # @completed_runs = current_user.runs.where(status: "completed")
+    # @incomplete_runs = current_user.runs.where(status: "incompleted")
   end
 
   def edit
