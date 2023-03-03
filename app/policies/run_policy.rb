@@ -7,10 +7,6 @@ class RunPolicy < ApplicationPolicy
     end
   end
 
-  def trends
-    true
-  end
-
   def create?
     true
   end
