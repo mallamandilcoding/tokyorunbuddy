@@ -7,8 +7,15 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+
 import ScheduledController from "./scheduled_controller"
 application.register("scheduled", ScheduledController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
+
+// import HelloController from "./hello_controller"
+// application.register("hello", HelloController)
 
 import ReadMore from 'stimulus-read-more'
 
