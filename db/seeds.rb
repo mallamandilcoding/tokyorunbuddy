@@ -157,6 +157,8 @@ end
 puts "Setting the time zone..."
 ENV['TZ'] = 'Asia/Tokyo'
 
+locations = Location.all
+
 runs = [
   {
     date: Date.new(2023, 3, 3),
@@ -166,24 +168,24 @@ runs = [
     weather_description: "clear sky",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
-    temperature: 18,
+    temperature: 10,
     air_quality: 1,
-    user: User.last,
-    location: Location.first
+    user: User.second,
+    location: locations.sample
   },
   {
     date: Date.new(2023, 3, 4),
     start_time: Time.new(2023, 3, 4, 16),
-    end_time: Time.new(2023, 3, 3, 18),
+    end_time: Time.new(2023, 3, 4, 18),
     status: "scheduled",
     weather_description: "clear sky",
     wind: 7.0,
     humidity: 65,
     precipitation: 0.0,
-    temperature: 18,
+    temperature: 14,
     air_quality: 1,
-    user: User.last,
-    location: Location.first
+    user: User.second,
+    location: locations.sample
   },
   {
     date: Date.new(2023, 3, 5),
@@ -194,10 +196,10 @@ runs = [
     wind: 8.0,
     humidity: 67.0,
     precipitation: 0.0,
-    temperature: 18,
+    temperature: 11,
     air_quality: 1,
-    user: User.last,
-    location: Location.second
+    user: User.second,
+    location: locations.sample
   },
   {
     date: Date.new(2023, 3, 5),
@@ -208,10 +210,10 @@ runs = [
     wind: 6.0,
     humidity: 69.0,
     precipitation: 0.0,
-    temperature: 18,
+    temperature: 12,
     air_quality: 1,
-    user: User.last,
-    location: Location.second
+    user: User.second,
+    location: locations.sample
   },
   { date: Date.new(2023, 3, 6),
     start_time: Time.new(2023, 3, 6, 19),
@@ -221,10 +223,11 @@ runs = [
     wind: 7.0,
     humidity: 64.0,
     precipitation: 0.0,
-    temperature: 18,
+    temperature: 14,
     air_quality: 1,
-    user: User.last,
-    location: Location.first },
+    user: User.second,
+    location: locations.sample
+  },
   {
     date: Date.new(2023, 2, 26),
     start_time: Time.new(2023, 2, 26, 16),
@@ -234,10 +237,66 @@ runs = [
     wind: 8.0,
     humidity: 66.0,
     precipitation: 0.0,
-    temperature: 18,
+    temperature: 12,
     air_quality: 1,
-    user: User.last,
-    location: Location.last
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    date: Date.new(2023, 2, 25),
+    start_time: Time.new(2023, 2, 25, 16),
+    end_time: Time.new(2023, 2, 25, 18),
+    status: "completed",
+    weather_description: "few clouds: 11-25%",
+    wind: 8.0,
+    humidity: 66.0,
+    precipitation: 0.0,
+    temperature: 10,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    date: Date.new(2023, 2, 19),
+    start_time: Time.new(2023, 2, 19, 16),
+    end_time: Time.new(2023, 2, 19, 18),
+    status: "completed",
+    weather_description: "scattered clouds: 25-50%",
+    wind: 8.0,
+    humidity: 66.0,
+    precipitation: 0.0,
+    temperature: 14,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    date: Date.new(2023, 2, 18),
+    start_time: Time.new(2023, 2, 18, 16),
+    end_time: Time.new(2023, 2, 18, 18),
+    status: "completed",
+    weather_description: "clear sky",
+    wind: 8.0,
+    humidity: 66.0,
+    precipitation: 0.0,
+    temperature: 11,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    date: Date.new(2023, 2, 12),
+    start_time: Time.new(2023, 2, 12, 16),
+    end_time: Time.new(2023, 2, 12, 18),
+    status: "completed",
+    weather_description: "scattered clouds: 25-50%",
+    wind: 8.0,
+    humidity: 66.0,
+    precipitation: 0.0,
+    temperature: 9,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
   }
 ]
 
