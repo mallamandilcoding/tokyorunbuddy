@@ -1,0 +1,17 @@
+<% location = @run.location %>
+<% weather_api = WeatherApi.new(location, DateTime.new(@run.date.year, @run.date.month, @run.date.day, @run.start_time.hour, @run.start_time.min, @run.start_time.sec, @run.start_time.zone).to_time.to_i) %>
+<% weather_for_this_location = weather_api.get_weather %>
+<div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
+  <div class="position-absolute top-0 start-100 translate-middle">
+    <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"><i class="fa-solid fa-temperature-high"></i> <%= weather_for_this_location["temperature"] %>°<span></h1>
+      </div>
+      <h1 class="border-bottom w-100">Weather Forecast</h1>
+      <p><%= @run.weather_description.capitalize %></p>
+      <div class="d-flex flex-column weather-details">
+        <div><i class="fa-solid fa-water"></i> HUMIDITY <%= weather_for_this_location["humidity"].to_i %></div>
+        <div><i class="fa-solid fa-wind"></i>  WIND <%= weather_for_this_location["wind"].to_i %></div>
+        <div><i class="fa-solid fa-sun"></i>  WEATHER <%= weather_for_this_location["weather_description"] %></div>
+        <div><i class="fa-solid fa-braille"></i> AIR QUALITY <%= weather_for_this_location["air_quality"] %></div>
+        <div><i class="fa-solid fa-percent"></i> PRECIPITATION <%= weather_for_this_location["precipitation"]%></div>
+      </div>
+    </div>
