@@ -159,9 +159,8 @@ locations = Location.all
 
 runs = [
   {
-    date: Date.new(2023, 3, 3),
-    start_time: Time.new(2023, 3, 3, 20, 0),
-    end_time: Time.new(2023, 3, 3, 22, 0),
+    start_time: DateTime.new(2023, 3, 12, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 12, 18, 0, 0, '+9'),
     status: "scheduled",
     weather_description: "clear sky",
     wind: 8.0, humidity: 63.0,
@@ -172,9 +171,8 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 3, 4),
-    start_time: Time.new(2023, 3, 4, 16, 0),
-    end_time: Time.new(2023, 3, 4, 18, 0),
+    start_time: DateTime.new(2023, 3, 11, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 11, 18, 0, 0, '+9'),
     status: "scheduled",
     weather_description: "clear sky",
     wind: 7.0,
@@ -186,10 +184,45 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 3, 5),
-    start_time: Time.new(2023, 3, 5, 16, 0),
-    end_time: Time.new(2023, 3, 5, 18, 0),
+    start_time: DateTime.new(2023, 3, 13, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 13, 18, 0, 0, '+9'),
     status: "suggested",
+    weather_description: "clear sky",
+    wind: 8.0, humidity: 63.0,
+    precipitation: 0.0,
+    temperature: 17,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    start_time: DateTime.new(2023, 3, 16, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
+    status: "suggested",
+    weather_description: "clear sky",
+    wind: 8.0, humidity: 63.0,
+    precipitation: 0.0,
+    temperature: 14,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    start_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 16, 20, 0, 0, '+9'),
+    status: "suggested",
+    weather_description: "clear sky",
+    wind: 8.0, humidity: 63.0,
+    precipitation: 0.0,
+    temperature: 13,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
+    start_time: DateTime.new(2023, 3, 5, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 5, 18, 0, 0, '+9'),
+    status: "completed",
     weather_description: "few clouds: 11-25%",
     wind: 8.0,
     humidity: 67.0,
@@ -200,10 +233,9 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 3, 5),
-    start_time: Time.new(2023, 3, 5, 12, 0),
-    end_time: Time.new(2023, 3, 5, 14, 0),
-    status: "suggested",
+    start_time: DateTime.new(2023, 3, 5, 12, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 5, 14, 0, 0, '+9'),
+    status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 6.0,
     humidity: 69.0,
@@ -213,10 +245,10 @@ runs = [
     user: User.second,
     location: locations.sample
   },
-  { date: Date.new(2023, 3, 6),
-    start_time: Time.new(2023, 3, 6, 19, 0),
-    end_time: Time.new(2023, 3, 6, 21, 0),
-    status: "suggested",
+  {
+    start_time: DateTime.new(2023, 3, 6, 19, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 6, 21, 0, 0, '+9'),
+    status: "completed",
     weather_description: "few clouds: 11-25%",
     wind: 7.0,
     humidity: 64.0,
@@ -227,9 +259,8 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 2, 26),
-    start_time: Time.new(2023, 2, 26, 16, 0),
-    end_time: Time.new(2023, 2, 26, 18, 0),
+    start_time: DateTime.new(2023, 2, 26, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 26, 18, 0, 0, '+9'),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 5.0,
@@ -241,9 +272,8 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 2, 25),
-    start_time: Time.new(2023, 2, 25, 16, 0),
-    end_time: Time.new(2023, 2, 25, 18, 0),
+    start_time: DateTime.new(2023, 2, 25, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 25, 18, 0, 0, '+9'),
     status: "completed",
     weather_description: "few clouds: 11-25%",
     wind: 8.0,
@@ -255,9 +285,8 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 2, 19),
-    start_time: Time.new(2023, 2, 19, 16, 0),
-    end_time: Time.new(2023, 2, 19, 18, 0),
+    start_time: DateTime.new(2023, 2, 19, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 19, 18, 0, 0, '+9'),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 7.0,
@@ -269,9 +298,8 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 2, 18),
-    start_time: Time.new(2023, 2, 18, 16, 0),
-    end_time: Time.new(2023, 2, 18, 18, 0),
+    start_time: DateTime.new(2023, 2, 18, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 18, 18, 0, 0, '+9'),
     status: "completed",
     weather_description: "clear sky",
     wind: 5.0,
@@ -283,9 +311,8 @@ runs = [
     location: locations.sample
   },
   {
-    date: Date.new(2023, 2, 12),
-    start_time: Time.new(2023, 2, 12, 16, 0),
-    end_time: Time.new(2023, 2, 12, 18, 0),
+    start_time: DateTime.new(2023, 2, 12, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 12, 18, 0, 0, '+9'),
     status: "completed",
     weather_description: "scattered clouds: 25-50%",
     wind: 6.0,

@@ -2,10 +2,10 @@
   <div class="edit_container_div">
     <div class="edit_form">
       <%= simple_form_for @run do |f| %>
-        <%= f.input :date,as: :date,html5: true , input_html: { min: (Date.today+1).strftime("%Y-%m-%d"), max: (Date.today+7).strftime("%Y-%m-%d") }  %>
-        <%= f.input :start_time %>
+        <%= f.input :start_time, as: :datetime, html5: true %>
+        <%= f.input :end_time, as: :datetime, html5: true %>
         <%= f.input :location_id, collection: Location.pluck(:name, :id), include_blank: false %>
-        <%= f.button :button,class: "btn btn-primary" do %>
+        <%= f.button :button, class: "btn btn-primary" do %>
           <i class="fas fa-undo"></i><span>Go Back</span>
         <% end %>
         <%= button_tag :submit,class: "btn btn-warning" do %>

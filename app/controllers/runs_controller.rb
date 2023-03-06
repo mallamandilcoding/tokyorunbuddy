@@ -5,7 +5,7 @@ class RunsController < ApplicationController
     @message1 = "Welcome, "
     @message2 = "Let's go for a run!"
     @color = "warning"
-    @upcoming_runs = current_user.runs.where(status: "scheduled").order(date: :asc).limit(3)
+    @upcoming_runs = current_user.runs.where(status: "scheduled").order(start_time: :asc).limit(3)
     @suggested_runs = current_user.runs.where(status: "suggested")
     # @runs = policy_scope(Run)
   end
@@ -85,7 +85,7 @@ class RunsController < ApplicationController
   private
 
   def run_params
-    params.require(:run).permit(:date, :start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :air_quality, :temperature)
+    params.require(:run).permit(:start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :air_quality, :temperature)
 
   end
 end
