@@ -1,0 +1,23 @@
+.login-container {
+  background-color: #00B4D8;
+  align-items: center;
+  height: 100%;
+}
+
+.login-container img {
+  width: 40%;
+}
+
+.rounded-input{
+  border-radius: 20px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.rounded-input:focus {
+  outline: none;
+  border: 1px solid #FF8500;
+}
