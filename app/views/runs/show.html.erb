@@ -43,7 +43,7 @@
           <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
           <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
           <%= simple_form_for(@run, url: "https://calendar.google.com/", html: { target: "_blank" }, data: {action: "submit->scheduled#change" }) do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}} # Need to check %>
+            <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}} # Need to check the logic %>
             <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: { scheduled_target: "button" } %>
           <% end %></div>
       </div>
