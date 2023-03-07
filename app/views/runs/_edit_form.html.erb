@@ -1,0 +1,19 @@
+
+    <div class="edit_form">
+      <%= simple_form_for run do |f| %>
+        <%#= f.input :start_time,label: 'Date',as: :date,html5: true , input_html: { min: (Date.today+1).strftime("%Y-%m-%d"), max: (Date.today+7).strftime("%Y-%m-%d") }  %>
+        <%= f.input :start_time,label: 'Date',as: :date,html5: true , input_html: { min: (Date.today+1).strftime("%Y-%m-%d")}  %>
+        <%#= f.label :start_time, "Start Time" %>
+        <%= f.input :start_time,label: "Time",as: :time %>
+        <%= f.input :location_id, collection: Location.pluck(:name, :id), include_blank: false %>
+        <div class="d-flex justify-content-between">
+         <%= f.button :button,class: "btn btn-primary",data: {action: "click->editpage#cancel"} do %>
+            <i class="fas fa-undo me-2"></i><span>Go Back</span>
+          <% end %>
+          <%= button_tag :submit,class: "btn btn-warning" do %>
+           <i class="fas fa-pen me-2"></i><span>Submit</span>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>

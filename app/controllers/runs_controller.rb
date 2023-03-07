@@ -67,7 +67,7 @@ class RunsController < ApplicationController
   def edit
     # do the logic here
     # @run = Run.new
-    @run = Run.find(params[:id])
+    # @run = Run.find(params[:id])
     # authorize @run
   end
 
@@ -79,6 +79,7 @@ class RunsController < ApplicationController
   def update
     # raise;
     @run = Run.find(params[:id])
+    @run.status = "scheduled"
     respond_to do |format|
       if @run.update(run_params)
         format.html { redirect_to run_path(@run) }
