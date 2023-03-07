@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_030734) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_051906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,9 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_030734) do
   end
 
   create_table "runs", force: :cascade do |t|
-    t.date "date"
-    t.time "start_time"
-    t.time "end_time"
     t.string "status"
     t.text "weather_description"
     t.float "wind"
@@ -68,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_030734) do
     t.datetime "updated_at", null: false
     t.bigint "location_id", null: false
     t.integer "temperature"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["location_id"], name: "index_runs_on_location_id"
     t.index ["user_id"], name: "index_runs_on_user_id"
   end

@@ -1,4 +1,4 @@
-<div class="bg-gradient" data-controller="scheduled">
+<div class="bg-gradient" data-controller="scheduled" data-url="https://www.google.com">
   <div class="run-image">
     <%= render 'runs/show_carousel', run: @run %>
   </div>
@@ -7,9 +7,9 @@
     <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
       <div class="d-flex flex-column run-date">
         <div class="day">
-          <h1 class="display-4"><%= @run.date.strftime('%A') %></h1>
+          <h1 class="display-4"><%= @run.start_time.strftime('%A') %></h1>
         </div>
-        <h1 class="display-4"><%= @run.date.strftime("%b %e , %Y") %></h1>
+        <h1 class="display-4"><%= @run.start_time.strftime("%b %e , %Y") %></h1>
       </div>
       <div class="d-flex align-items-center time"><b>
           <h1 class="display-1"><%= @run.start_time.strftime('%H:%M') %></h1>
@@ -24,14 +24,14 @@
         <button class="btn btn-link-primary" data-action="read-more#toggle">Read more</button>
       </div>
     </div>
-    <%= render 'runs/weather_show_card', run: @run %>
-    <div class="d-flex justify-content-around my-5">
-      <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
-      <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
-      <%= simple_form_for(@run, data: {action: "submit->scheduled#change"}) do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}}  %>
-        <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: {
-    scheduled_target: "button" } %>
-      <% end %></div>
-  </div>
-</div>
+   <%= render 'runs/weather_show_card', run: @run %>
+        <div class="d-flex justify-content-around my-5">
+          <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
+          <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
+          <%= simple_form_for(@run, url: "https://calendar.google.com/", html: { target: "_blank" }, data: {action: "submit->scheduled#change" }) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}} # Need to check the logic %>
+            <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: { scheduled_target: "button" } %>
+          <% end %></div>
+      </div>
+    </div>
+
