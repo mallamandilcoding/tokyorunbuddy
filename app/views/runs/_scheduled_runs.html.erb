@@ -6,6 +6,7 @@
         <div class="each-scheduled-runs-div d-flex align-items-center">
           <i class="fas fa-circle dot-circle me-2"></i>
           <div class="info-div mb-3 p-2 d-flex justify-content-between flex-grow-1">
+            <%= link_to "",run_path(run), class: "clicksuggestion" %>
             <div class="date-div">
               <% day = run.start_time.day %>
               <% suffix = case day%>
