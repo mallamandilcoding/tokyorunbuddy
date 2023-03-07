@@ -32,31 +32,31 @@ users = [
     time_of_day_preference: "evening",
     temperature_preference: 10,
     admin: true
-  },
-  {
-    first_name: "John",
-    last_name: "Baker",
-    email: "john.baker@gmail.com",
-    password: 123123,
-    time_of_day_preference: "morning",
-    temperature_preference: 20
-  },
-  {
-    first_name: "Keina",
-    last_name: "Morikawa",
-    email: "keina.morikawa@me.com",
-    password: 123123,
-    time_of_day_preference: "evening",
-    temperature_preference: 15
   }
+  # {
+  #   first_name: "John",
+  #   last_name: "Baker",
+  #   email: "john.baker@gmail.com",
+  #   password: 123123,
+  #   time_of_day_preference: "morning",
+  #   temperature_preference: 20
+  # },
+  # {
+  #   first_name: "Keina",
+  #   last_name: "Morikawa",
+  #   email: "keina.morikawa@me.com",
+  #   password: 123123,
+  #   time_of_day_preference: "evening",
+  #   temperature_preference: 15
+  # }
 ]
 
 user_images = [
   ["app/assets/images/mandil.jpeg"],
   ["app/assets/images/emika.jpeg"],
-  ["app/assets/images/kurisu.jpeg"],
-  ["app/assets/images/john.jpeg"],
-  ["app/assets/images/keina.jpeg"]
+  ["app/assets/images/kurisu.jpeg"]
+  # ["app/assets/images/john.jpeg"],
+  # ["app/assets/images/keina.jpeg"]
 ]
 
 puts "Creating users..."
@@ -171,7 +171,7 @@ runs = [
     precipitation: 0.0,
     temperature: 10,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -184,45 +184,45 @@ runs = [
     precipitation: 0.0,
     temperature: 14,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
-  {
-    start_time: DateTime.new(2023, 3, 13, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 13, 18, 0, 0, '+9'),
-    status: "suggested",
-    weather_description: "Clear sky",
-    wind: 8.0, humidity: 63.0,
-    precipitation: 0.0,
-    temperature: 17,
-    air_quality: 1,
-    user: User.second,
-    location: locations.sample
-  },
-  {
-    start_time: DateTime.new(2023, 3, 16, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
-    status: "suggested",
-    weather_description: "Clear sky",
-    wind: 8.0, humidity: 63.0,
-    precipitation: 0.0,
-    temperature: 14,
-    air_quality: 1,
-    user: User.second,
-    location: locations.sample
-  },
-  {
-    start_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 16, 20, 0, 0, '+9'),
-    status: "suggested",
-    weather_description: "Clear sky",
-    wind: 8.0, humidity: 63.0,
-    precipitation: 0.0,
-    temperature: 13,
-    air_quality: 1,
-    user: User.second,
-    location: locations.sample
-  },
+  # {
+  #   start_time: DateTime.new(2023, 3, 13, 16, 0, 0, '+9'),
+  #   end_time: DateTime.new(2023, 3, 13, 18, 0, 0, '+9'),
+  #   status: "suggested",
+  #   weather_description: "Clear sky",
+  #   wind: 8.0, humidity: 63.0,
+  #   precipitation: 0.0,
+  #   temperature: 17,
+  #   air_quality: 1,
+  #   user: User.find_by(first_name: "Kurisu"),
+  #   location: locations.sample
+  # },
+  # {
+  #   start_time: DateTime.new(2023, 3, 16, 16, 0, 0, '+9'),
+  #   end_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
+  #   status: "suggested",
+  #   weather_description: "Clear sky",
+  #   wind: 8.0, humidity: 63.0,
+  #   precipitation: 0.0,
+  #   temperature: 14,
+  #   air_quality: 1,
+  #   user: User.find_by(first_name: "Kurisu"),
+  #   location: locations.sample
+  # },
+  # {
+  #   start_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
+  #   end_time: DateTime.new(2023, 3, 16, 20, 0, 0, '+9'),
+  #   status: "suggested",
+  #   weather_description: "Clear sky",
+  #   wind: 8.0, humidity: 63.0,
+  #   precipitation: 0.0,
+  #   temperature: 13,
+  #   air_quality: 1,
+  #   user: User.find_by(first_name: "Kurisu"),
+  #   location: locations.sample
+  # },
   {
     start_time: DateTime.new(2023, 3, 5, 16, 0, 0, '+9'),
     end_time: DateTime.new(2023, 3, 5, 18, 0, 0, '+9'),
@@ -233,7 +233,7 @@ runs = [
     precipitation: 0.0,
     temperature: 11,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -246,7 +246,7 @@ runs = [
     precipitation: 0.0,
     temperature: 12,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -259,7 +259,7 @@ runs = [
     precipitation: 0.0,
     temperature: 14,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -272,7 +272,7 @@ runs = [
     precipitation: 0.0,
     temperature: 12,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -285,7 +285,7 @@ runs = [
     precipitation: 0.0,
     temperature: 10,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -298,7 +298,7 @@ runs = [
     precipitation: 0.0,
     temperature: 14,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -311,7 +311,7 @@ runs = [
     precipitation: 0.0,
     temperature: 11,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -324,7 +324,7 @@ runs = [
     precipitation: 0.0,
     temperature: 9,
     air_quality: 1,
-    user: User.second,
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   }
 ]
