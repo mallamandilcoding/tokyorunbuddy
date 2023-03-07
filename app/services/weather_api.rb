@@ -2,10 +2,11 @@ require 'open-uri'
 require 'json'
 
 class WeatherApi
-  def initialize(location)
+  def initialize(location, timestamp)
     @location = location
     @latitude = @location.latitude
     @longitude = @location.longitude
+    @timestamp = timestamp
   end
 
   def get_weather
@@ -18,13 +19,18 @@ class WeatherApi
     air_quality_response = URI.open(air_quality_url).read
     air_quality_data = JSON.parse(air_quality_response)
 
-    weather_info["description"] = weather_data['current']['weather'][0]['description']
-    # weather_info["weather"] = weather_data['current']['weather'][0]['id']
-    weather_info["wind"] = weather_data['current']['wind_speed']
-    weather_info["humidity"] = weather_data['current']['humidity']
-    weather_info["precipitation"] = weather_data['current']['rain'] ? weather_data['current']['rain']['1h'] : 0
+    weather_data['hourly'].select do |hash|
+      if hash["dt"].to_i == @timestamp
+        weather_info["weather_description"] = hash['weather'][0]['description']
+        weather_info["wind"] = hash['wind_speed']
+        weather_info["temperature"] = hash['temp'].to_i
+        weather_info["humidity"] = hash['humidity']
+        weather_info["precipitation"] = hash['rain'] ? hash['rain']['1h'] : 0
+      end
+    end
     weather_info["air_quality"] = air_quality_data['list'][0]['main']['aqi']
     return weather_info
+
   end
 end
 
@@ -37,3 +43,25 @@ end
 
 # To access a key in the hash
 # weather_for_my_location["wind"]
+
+
+# https://api.openweathermap.org/data/3.0/onecall?lat=35.6825&lon=139.7521&units=metric&exclude=minutely,alerts&appid=4fdf24cc8340f549948501271ef44d23
+
+
+
+# class WeatherApi
+#   def initialize(location, time) i need to get the location and time to use the API
+#     @location = location
+#     @latitude = @location.latitude
+#     @longitude = @location.longitude
+
+
+
+
+# time = weather_data['hourly']['dt'] ??????  I need to get the "dt" from API
+# Time.at(time) transform API dt to ruby
+# Time.at(hour) == @run.start_time match api time to suggested run time to check the weather
+
+
+# hour = weather_data['hourly']['dt']
+# Time.at(hour) == @run.start_time
