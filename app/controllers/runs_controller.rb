@@ -40,9 +40,10 @@ class RunsController < ApplicationController
   def index
     # @bookings = policy_scope(Booking) (eg)
     @color = "primary"
-    @runs = policy_scope(Run)
     @message1 = "Welcome, "
     @message2 = "Ready for your next run?"
+    @runs = policy_scope(Run).group_by {|run| run.status}
+    # raise
     # @upcoming_runs = current_user.runs.where(status: "scheduled")
     # @suggested_runs = current_user.runs.where(status: "suggested")
     # @completed_runs = current_user.runs.where(status: "completed")
