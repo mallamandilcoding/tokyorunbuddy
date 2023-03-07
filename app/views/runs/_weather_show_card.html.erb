@@ -1,5 +1,5 @@
 <% location = @run.location %>
-<% weather_api = WeatherApi.new(location, Date.new(@run.start_time.year, @run.start_time.month, @run.start_time.day, @run.start_time.hour, @run.start_time.min, @run.start_time.sec, @run.start_time.zone).to_time.to_i) %>
+<% weather_api = WeatherApi.new(location, DateTime.new(@run.start_time.year, @run.start_time.month, @run.start_time.day, @run.start_time.hour, @run.start_time.min, @run.start_time.sec, @run.start_time.zone).to_time.to_i) %>
 <% weather_for_this_location = weather_api.get_weather %>
 <div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
   <div class="position-absolute top-0 start-100 translate-middle">
