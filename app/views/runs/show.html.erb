@@ -1,37 +1,48 @@
-<div class="bg-gradient" data-controller="scheduled" data-url="https://www.google.com">
-  <div class="run-image">
-    <%= render 'runs/show_carousel', run: @run %>
-  </div>
-  <div data-scheduled-target="bgcolor" class="container-fluid vh-100 pt-3 <%= @scheduled ? "bg-scheduled" : "bg-suggested" %> ">
-    <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
-      <div class="d-flex flex-column run-date">
-        <div class="day">
-          <h1 class="display-4"><%= @run.start_time.strftime('%A') %></h1>
+<div data-controller="editpage">
+
+  <div class="bg-gradient my-3" data-controller="scheduled" data-url="https://www.google.com">
+    <div class="run-image">
+      <%= render 'runs/show_carousel', run: @run %>
+    </div>
+    <div data-scheduled-target="bgcolor" class="container-fluid vh-100 pt-3 <%= @scheduled ? "bg-scheduled" : "bg-suggested" %> ">
+      <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
+        <div class="d-flex flex-column run-date">
+          <div class="day">
+            <h1 class="display-4"><%= @run.start_time.strftime('%A') %></h1>
+          </div>
+          <h1 class="display-4"><%= @run.start_time.strftime("%b %e , %Y") %></h1>
         </div>
-        <h1 class="display-4"><%= @run.start_time.strftime("%b %e , %Y") %></h1>
+        <div class="d-flex align-items-center time"><b>
+            <h1 class="display-1"><%= @run.start_time.strftime('%H:%M') %></h1>
+          </b></div>
       </div>
-      <div class="d-flex align-items-center time"><b>
-          <h1 class="display-1"><%= @run.start_time.strftime('%H:%M') %></h1>
-        </b></div>
-    </div>
-    <div class ="d-flex flex-column text-primary p-3 card-location-info">
-      <h1 class="border-bottom w-100"><strong><%= @run.location.name %></strong></h1>
-      <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Less">
-        <p class="my-content" data-read-more-target="content">
-          <%= @run.location.description %>
-        </p>
-        <button class="btn btn-link-primary" data-action="read-more#toggle">Read more</button>
+      <div class ="d-flex flex-column text-primary p-3 card-location-info">
+        <h1 class="border-bottom w-100"><strong><%= @run.location.name %></strong></h1>
+        <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Less">
+          <p class="my-content" data-read-more-target="content">
+            <%= @run.location.description %>
+          </p>
+          <button class="btn btn-link-primary" data-action="read-more#toggle">Read more</button>
+        </div>
       </div>
-    </div>
-    <%= render 'runs/weather_show_card', run: @run %>
-    <div class="d-flex justify-content-around my-5">
-      <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
-      <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
-      <%= simple_form_for @run, remote: true, data: {action: "submit->scheduled#change", scheduled_target: "form" } do |f| %>
-        <%= f.input :status, as: :hidden, wrapper_html: { id: "hidden-margin" }, input_html: {value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}} %>
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token,  data: {scheduled_target: "token"}  %>
-        <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: { scheduled_target: "button" } %>
-      <% end %>
+      <%= render 'runs/weather_show_card', run: @run %>
+      <div class="d-flex justify-content-around my-5">
+        <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
+        <%#= link_to 'MODIFY',edit_run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
+        <span class="btn rounded-4 btn-primary btn-sm" data-action="click->editpage#showeditpage">MODIFY</span>
+        <%= simple_form_for @run, remote: true, data: {action: "submit->scheduled#change", scheduled_target: "form" } do |f| %>
+          <%= f.input :status, as: :hidden, wrapper_html: { id: "hidden-margin" }, input_html: {value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}} %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token,  data: {scheduled_target: "token"}  %>
+          <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: { scheduled_target: "button" } %>
+        <% end %>
+      </div>
     </div>
   </div>
+
+  <div class="edit_container_div d-flex justify-content-center align-items-center" data-editpage-target="edit">
+    <%= render 'edit_form', run: @run %>
+  </div>
+
+
+
 </div>

@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import EditpageController from "./editpage_controller"
+application.register("editpage", EditpageController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
