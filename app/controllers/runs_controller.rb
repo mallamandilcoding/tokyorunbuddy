@@ -82,7 +82,7 @@ class RunsController < ApplicationController
     respond_to do |format|
       if @run.update(run_params)
         format.html { redirect_to run_path(@run) }
-        format.json
+        format.json { @run }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json
