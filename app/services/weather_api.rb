@@ -21,7 +21,6 @@ class WeatherApi
 
     # within_two_days = Time.at(@timestamp).between?(Date.today, Date.today + 2)
     weather_data['daily'].select do |hash|
-      raise
      if hash["dt"].to_i == @timestamp
         weather_info["weather_description"] = hash['weather'][0]['description'].capitalize
         weather_info["wind"] = hash['wind_speed']
