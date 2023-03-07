@@ -3,7 +3,7 @@ class RunPolicy < ApplicationPolicy
     # NOTE: Be explicit about which records you allow access to!
     def resolve
       # scope.where(status: "scheduled").order(date: :asc).limit(3)
-      scope.all
+      scope.all.where(status: ["scheduled", "suggested", "completed", "incomplete"])
     end
   end
 

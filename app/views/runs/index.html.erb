@@ -1,4 +1,20 @@
 <div class="container">
-  <%= render "card_suggestion", runs: @runs %>
+  <% @runs.each do |run, datas| %>
+    <div class="row my-5 shadow-sm border">
+      <div class="col">
+         <h1 class="text-center my-2 runs-page-h1">
+            <% if run == "scheduled" %>
+              <span class="text-warning"><%= run %></span>
+            <% else %>
+              <span class="text-primary"><%= run %></span>
+            <% end %>
+         </h1>
+          <div class="runs-div">
+            <%= render "card_suggestions", runs: datas %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+
 
 </div>
