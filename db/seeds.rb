@@ -162,6 +162,18 @@ locations = Location.all
 
 runs = [
   {
+    start_time: DateTime.new(2023, 3, 8, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 8, 18, 0, 0, '+9'),
+    status: "suggested",
+    weather_description: "clear sky",
+    wind: 8.0, humidity: 63.0,
+    precipitation: 0.0,
+    temperature: 10,
+    air_quality: 1,
+    user: User.second,
+    location: locations.sample
+  },
+  {
     start_time: DateTime.new(2023, 3, 12, 16, 0, 0, '+9'),
     end_time: DateTime.new(2023, 3, 12, 18, 0, 0, '+9'),
     status: "scheduled",
