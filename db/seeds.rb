@@ -12,7 +12,8 @@ users = [
     email: "mallamandilcoding@gmail.com",
     password: 123123,
     time_of_day_preference: "morning",
-    temperature_preference: 15
+    temperature_preference: 15,
+    admin: true
   },
   {
     first_name: "Emika",
@@ -20,7 +21,8 @@ users = [
     email: "em888ka@gmail.com",
     password: 123123,
     time_of_day_preference: "afternoon",
-    temperature_preference: 20
+    temperature_preference: 20,
+    admin: true
   },
   {
     first_name: "Kurisu",
@@ -28,7 +30,8 @@ users = [
     email: "sutairusu@me.com",
     password: 123123,
     time_of_day_preference: "evening",
-    temperature_preference: 10
+    temperature_preference: 10,
+    admin: true
   },
   {
     first_name: "John",
