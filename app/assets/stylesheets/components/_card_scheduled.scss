@@ -14,11 +14,23 @@
     background-color: #FF9E00;
     border-radius: 4px;
     color: white;
+    position: relative;
+    .clicksuggestion{
+        position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   p{
     margin:0;
     padding:0;
+  }
+
+  .timeandplacediv{
+    text-align: center;
   }
 
   .iconandtemp{
