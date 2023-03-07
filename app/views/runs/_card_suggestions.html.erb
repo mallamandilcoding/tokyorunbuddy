@@ -1,7 +1,7 @@
 <div class="col">
   <% runs.each do|run| %>
     <% location = run.location %>
-    <% weather_api = WeatherApi.new(location, DateTime.new(run.date.year, run.date.month, run.date.day, run.start_time.hour, run.start_time.min, run.start_time.sec, run.start_time.zone).to_time.to_i) %>
+    <% weather_api = WeatherApi.new(location, DateTime.new(run.start_time.year, run.start_time.month, run.start_time.day, run.start_time.hour, run.start_time.min, run.start_time.sec, run.start_time.zone).to_time.to_i) %>
     <% weather_for_this_location = weather_api.get_weather %>
     <%= link_to run_path(run), class: "card-run", style: 'text-decoration: none;' do %>
       <%= cl_image_tag run.location.photos.first.key, class: "rounded-3" %>
