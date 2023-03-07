@@ -3,7 +3,6 @@
     <%= render 'runs/show_carousel', run: @run %>
   </div>
   <div data-scheduled-target="bgcolor" class="container-fluid vh-100 pt-3" style="
-
     <%= @scheduled ? "background-image: linear-gradient(#FF9E00 -20%, #FFFFFF 30%);" : "background-image: linear-gradient(#0096C7 -20%, #FFFFFF 30%);" %> ">
     <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
       <div class="d-flex flex-column run-date">
@@ -12,7 +11,7 @@
         </div>
         <h1 class="display-4"><%= @run.date.strftime("%b %e , %Y") %></h1>
       </div>
-      <div class="time"><b>
+      <div class="d-flex align-items-center time"><b>
           <h1 class="display-1"><%= @run.start_time.strftime('%H:%M') %></h1>
         </b></div>
     </div>
@@ -25,27 +24,14 @@
         <button class="btn btn-link-primary" data-action="read-more#toggle">Read more</button>
       </div>
     </div>
-    <div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
-      <div class="position-absolute top-0 start-100 translate-middle">
-        <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"><i class="fa-solid fa-temperature-high"></i> 12°<span></h1>
-          </div>
-          <h1 class="border-bottom w-100">Weather Forecast</h1>
-          <p><%= @run.weather_description.capitalize %></p>
-          <div class="d-flex flex-column weather-details">
-            <div><i class="fa-sharp fa-solid fa-droplet-percent"></i>HUMIDITY <%= @run.humidity %></div>
-            <div><i class="fa-solid fa-wind"></i>  WIND <%= @run.wind %></div>
-            <div><i class="fa-solid fa-sun"></i>  WEATHER <%= @run.weather_description %></div>
-            <div><i class="fa-light fa-braille"></i>  AIR QUALITY</div>
-            <div><i class="fa-solid fa-cloud-snow"></i>  PRECIPITATION <%= @run.precipitation %></div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-around my-5">
-          <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
-          <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
-          <%= simple_form_for(@run, data: {action: "submit->scheduled#change"}) do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}}  %>
-            <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: {
+    <%= render 'runs/weather_show_card', run: @run %>
+    <div class="d-flex justify-content-around my-5">
+      <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
+      <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
+      <%= simple_form_for(@run, data: {action: "submit->scheduled#change"}) do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: @scheduled ? "suggested" : 'scheduled', data: {scheduled_target: "inputvalue"}}  %>
+        <%= f.submit @scheduled ? "CANCEL" : 'ADD TO CALENDAR', class: 'btn rounded-4 btn-warning text-white btn-sm', data: {
     scheduled_target: "button" } %>
-          <% end %></div>
-      </div>
-    </div>
+      <% end %></div>
+  </div>
+</div>
