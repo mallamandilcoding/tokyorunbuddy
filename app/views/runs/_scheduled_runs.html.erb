@@ -7,16 +7,16 @@
           <i class="fas fa-circle dot-circle me-2"></i>
           <div class="info-div mb-3 p-2 d-flex justify-content-between flex-grow-1">
             <div class="date-div">
-              <% day = run.date.day %>
+              <% day = run.start_time.day %>
               <% suffix = case day%>
               <% when 1, 21, 31 then 'st'%>
               <% when 2, 22 then 'nd'%>
               <% when 3, 23 then 'rd'%>
             <% else 'th' %>
             <%end%>
-            <%formatted_date = run.date.strftime("%B #{day}#{suffix}")%>
+            <%formatted_date = run.start_time.strftime("%B #{day}#{suffix}")%>
             <p><%= formatted_date %></p>
-            <p><%= run.date.strftime("%A") %></p>
+            <p><%= run.start_time.strftime("%A") %></p>
           </div>
           <div class="timeandplacediv">
             <p><i class="far fa-clock me-2"></i><%= run.start_time.strftime("%H:%M") %></p>
