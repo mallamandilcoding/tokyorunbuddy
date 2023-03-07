@@ -25,7 +25,7 @@
       </div>
     </div>
     <%= render 'runs/weather_show_card', run: @run %>
-    <div class="d-flex justify-content-around my-5">
+    <div class="d-flex align-items-center justify-content-around my-5">
       <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
       <%= link_to 'MODIFY',run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
       <%= simple_form_for(@run, data: {action: "submit->scheduled#change"}) do |f| %>

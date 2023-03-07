@@ -43,25 +43,3 @@ end
 
 # To access a key in the hash
 # weather_for_my_location["wind"]
-
-
-# https://api.openweathermap.org/data/3.0/onecall?lat=35.6825&lon=139.7521&units=metric&exclude=minutely,alerts&appid=4fdf24cc8340f549948501271ef44d23
-
-
-
-# class WeatherApi
-#   def initialize(location, time) i need to get the location and time to use the API
-#     @location = location
-#     @latitude = @location.latitude
-#     @longitude = @location.longitude
-
-
-
-
-# time = weather_data['hourly']['dt'] ??????  I need to get the "dt" from API
-# Time.at(time) transform API dt to ruby
-# Time.at(hour) == @run.start_time match api time to suggested run time to check the weather
-
-
-# hour = weather_data['hourly']['dt']
-# Time.at(hour) == @run.start_time
