@@ -15,3 +15,9 @@ application.register("navbar", NavbarController)
 
 import ScheduledController from "./scheduled_controller"
 application.register("scheduled", ScheduledController)
+
+import ReadMore from 'stimulus-read-more'
+application.register('read-more', ReadMore)
+
+import Carousel from 'stimulus-carousel'
+application.register('carousel', Carousel)

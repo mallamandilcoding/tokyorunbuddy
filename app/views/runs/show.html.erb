@@ -1,6 +1,5 @@
 <div data-controller="editpage">
-
-  <div class="bg-gradient my-3" data-controller="scheduled" data-url="https://www.google.com">
+  <div class="bg-gradient m-0" data-controller="scheduled" data-url="https://www.google.com">
     <div class="run-image">
       <%= render 'runs/show_carousel', run: @run %>
     </div>
@@ -26,7 +25,7 @@
         </div>
       </div>
       <%= render 'runs/weather_show_card', run: @run %>
-      <div class="d-flex justify-content-around my-5">
+      <div class="d-flex justify-content-around my-1">
         <%= link_to 'SUGGESTIONS',suggestions_path(@runs), class: 'btn rounded-4 btn-primary btn-sm' %>
         <%#= link_to 'MODIFY',edit_run_path(params[:id]), class: 'btn rounded-4 btn-primary btn-sm' %>
         <span class="btn rounded-4 btn-primary btn-sm" data-action="click->editpage#showeditpage">MODIFY</span>
@@ -38,11 +37,7 @@
       </div>
     </div>
   </div>
-
   <div class="edit_container_div d-flex justify-content-center align-items-center" data-editpage-target="edit">
     <%= render 'edit_form', run: @run %>
   </div>
-
-
-
 </div>
