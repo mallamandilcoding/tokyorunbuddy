@@ -21,16 +21,17 @@ class WeatherApi
 
     # within_two_days = Time.at(@timestamp).between?(Date.today, Date.today + 2)
     weather_data['daily'].select do |hash|
-     if hash["dt"].to_i == @timestamp
+     if Time.at(hash["dt"]).to_datetime.day == @timestamp.day
         weather_info["weather_description"] = hash['weather'][0]['description'].capitalize
         weather_info["wind"] = hash['wind_speed']
-        weather_info["temperature"] = hash['temp']['day'] - 273.15
+        weather_info["temperature"] = hash['temp']['day'].to_i
         weather_info["humidity"] = hash['humidity']
-        weather_info["precipitation"] = hash['rain'] ? hash['rain']['1h'] : 0
+        # weather_info["precipitation"] = hash['rain'] ? hash['rain']['1h'] : 0
        end
     end
     weather_info["air_quality"] = air_quality_data['list'][0]['main']['aqi']
     return weather_info
+    # return weather_data
   end
 end
 
