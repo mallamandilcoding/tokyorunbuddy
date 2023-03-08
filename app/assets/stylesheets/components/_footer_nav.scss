@@ -1,0 +1,17 @@
+footer{
+
+  .navbar-footer-button{
+    text-align: center;
+    a{
+      text-decoration: none;
+      color:gray;
+      &.active i{
+        color:#03045E;
+      }
+    }
+    span{
+      font-size: 12px;
+    }
+  }
+
+}

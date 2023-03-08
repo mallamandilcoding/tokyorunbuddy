@@ -12,11 +12,15 @@
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <% unless controller_name == 'runs' && action_name == 'show' %>
       <%= render partial: 'shared/navbar' %>
     <% end %>
     <%= render "shared/flashes" %>
+
     <%= yield %>
+    <% if !current_page?(new_user_session_path) %>
+      <%= render partial: 'shared/footer_navbar' %>
+    <% end %>
   </body>
 </html>

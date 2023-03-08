@@ -2,12 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ["drop"]
+  static targets = ["activeicon"]
   connect() {
     console.log("connected")
+    console.log(this.activeiconTargets);
   }
-
-  dropdown(){
-    this.dropTarget.classList.toggle("active")
+  makeactive(){
+    console.log(this.activeiconTargets);
   }
 }
