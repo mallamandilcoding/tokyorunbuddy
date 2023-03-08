@@ -162,10 +162,10 @@ locations = Location.all
 
 runs = [
   {
-    start_time: DateTime.new(2023, 3, 8, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 8, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 9, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 9, 18, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "clear sky",
+    weather_description: "Clear sky",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 10,
@@ -200,10 +200,10 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 13, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 13, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 13, 12, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 13, 14, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "Clear sky",
+    weather_description: "Scattered clouds: 25-50%",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 17,
@@ -212,10 +212,10 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 16, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 14, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 14, 18, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "Clear sky",
+    weather_description: "Scattered clouds: 25-50%",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 14,
@@ -224,8 +224,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 16, 20, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 15, 18, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 15, 20, 0, 0, '+9'),
     status: "suggested",
     weather_description: "Clear sky",
     wind: 8.0, humidity: 63.0,
