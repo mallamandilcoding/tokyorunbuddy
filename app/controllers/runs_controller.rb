@@ -4,14 +4,14 @@ class RunsController < ApplicationController
   def suggestions
     @message1 = "Welcome, "
     @message2 = "Let's go for a run!"
-    @color = "warning"
+    @color = "primary"
     @upcoming_runs = current_user.runs.where(status: "scheduled").order(start_time: :asc).limit(3)
     @suggested_runs = current_user.runs.where(status: "suggested")
     # @runs = policy_scope(Run)
   end
 
   def trends
-    @color = "primary"
+    @color = "warning"
     @completed_runs = current_user.runs.where(status: "completed")
     @message1 = "Good job, "
     @message2 = "Let's schedule another run."
@@ -20,10 +20,24 @@ class RunsController < ApplicationController
     count_afternoon = 0
     count_evening = 0
     temperature = 0
+    cold_temperatures = 0
+    warm_temperatures = 0
+    hot_temperatures = 0
+    @location_counts = @completed_runs.group_by { |run| run.location.name}.transform_values{|val| val.count}
+    @location = @completed_runs.group_by { |run| run.location.name}.transform_values{|val| val.count}.max_by{|k, v| v}
     @completed_runs.each do |t|
-      # time = Time.parse(t.start_time.strftime("%I:%M %p"))
-      time = Time.parse("1pm")
-      temperature += t.temperature
+      time = Time.parse(t.start_time.strftime("%I:%M %p"))
+      # time = Time.parse("1pm")
+      case t.temperature
+        when 0..15
+          cold_temperatures += 1
+        when 16..25
+          warm_temperatures += 1
+        else
+          hot_temperatures += 1
+      end
+      @temperatures = {'cold' => cold_temperatures, 'warm' => warm_temperatures, 'hot' => hot_temperatures}
+      @temperature = {'cold' => cold_temperatures, 'warm' => warm_temperatures, 'hot' => hot_temperatures}.max_by{|k, v| v}
       if time < Time.parse("12pm")
         count_morn += 1
       elsif time > Time.parse("12pm") && time < Time.parse("6pm")
@@ -32,9 +46,13 @@ class RunsController < ApplicationController
         count_evening += 1
       end
     end
-    max_variable = { 'morning' => count_morn, 'afternoon' => count_afternoon, 'evening' => count_evening}.max_by{|k, v| v}
-    @time_of_day = max_variable[0]
-    @average_temperature = temperature / @totalruns
+    # max_variable = { 'morning' => count_morn, 'afternoon' => count_afternoon, 'evening' => count_evening}.max_by{|k, v| v}
+
+    @time_of_days = { 'morning' => count_morn, 'afternoon' => count_afternoon, 'evening' => count_evening}
+    @time_of_day = { 'morning' => count_morn, 'afternoon' => count_afternoon, 'evening' => count_evening}.max_by{|k, v| v}
+
+    # @time_of_day = max_variable[0]
+    # @average_temperature = temperature / @totalruns
   end
 
   def index

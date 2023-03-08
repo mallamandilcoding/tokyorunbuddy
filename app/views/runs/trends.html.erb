@@ -1,20 +1,30 @@
 <div class="container">
-  <div class="row">
-    <h1 class="text-primary text-center">Trends</h1>
-    <div class="trend shadow-sm rounded p-3 text-warning">
-      <h3 class="text-center">A Summary of Your Completed Runs</h3>
-      <div class="totalruns">
-        <span>Total number of runs: </span>
-        <strong class="fs-5"><%= @totalruns %></strong>  <i class="fas fa-running"></i>
-      </div>
-      <div class="time-of-days">
-        <span>You seem to prefer running in the </span><strong class="fs-5"><%= @time_of_day %></strong>.  <i class="fas fa-sun"></i>
-      </div>
-      <div class="temperature">
-        <span>Average temperature for all runs: </span> <strong class="fs-5"><%= @average_temperature%> <span>&#176;</span>C</strong>  <i class="fas fa-thermometer-three-quarters"></i>
-      </div>
+<div class="row mt-2">
+  <div class="shadow-sm rounded">
+    <h1 class="text-primary text-center font-weight-bold">Total <%= @completed_runs.count %> <i class="fa-solid fa-person-running"></i></h1>
+
+    <div class="d-flex justify-content-center">
+      <%= pie_chart @location_counts, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Locations", tooltips: { callbacks: { label: 'function(tooltipItem, data) { var value = data.datasets[0].data[tooltipItem.index]; if (value == Math.max(...data.datasets[0].data)) { return value + " *"; } else { return value; } }' } }  %>
+      <span class="d-flex align-items-center ms-2">
+      <%# <span>Frequent Run location: <strong> = @location[0] </strong></span> %>
+      </span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= pie_chart @time_of_days, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Time Of Day" %>
+      <span class="d-flex align-items-center ms-2">
+      <%# <span>Frequent Time Of The Day: <strong> <%= @time_of_day[0] </strong></span> %>
+      </span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= pie_chart @temperatures, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Temperature" %>
+      <span class="d-flex align-items-center ms-2">
+      <%# <span>Frequent Location Temperature: <strong> <%=@temperature[0] </strong></span> %>
+      </span>
     </div>
   </div>
+</div>
+
+
   <div class="row my-3 border-bottom border-3">
     <h1 class="text-primary text-center">Completed Runs</h1>
     <%= render "card_suggestions", runs: @completed_runs %>
