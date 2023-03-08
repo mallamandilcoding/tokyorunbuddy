@@ -1,0 +1,5 @@
+meta_product_name: "Tokyo Run Buddy"
+meta_title: "Tokyo Run Buddy - Plan your next run in seconds!"
+meta_description: "Tokyo Run Buddy suggests a day, time and location in Tokyo for you to go on your next run. No need to check the weather or your calendar every time. No need to find a place either - Tokyo Run Buddy will find a great place in Tokyo for you!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@tokyorunbuddy"   # required for Twitter Cards
