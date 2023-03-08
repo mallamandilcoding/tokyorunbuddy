@@ -1,3 +1,6 @@
+<% content_for :meta_title, "#{current_user.first_name} is checking out a run suggestion on #{DEFAULT_META["meta_product_name"]}!" %>
+<% content_for :meta_description, "#{run.location.name} - #{run.location.description}" %>
+<% content_for :meta_image, cl_image_tag run.location.photos.first.key %>
 <div data-controller="editpage">
   <% tokyo_time = ActiveSupport::TimeZone.new("Tokyo") %>
   <% start_time = tokyo_time.at(@run.start_time) %>
