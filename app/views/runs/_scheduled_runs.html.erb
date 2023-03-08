@@ -25,7 +25,10 @@
           </div>
           <div class="iconandtemp">
             <span class="weather-icon"><i class="far fa-sun"></i></span>
-            <p><%= run.temperature %><span>&#176;</span>C</p>
+            <% location = run.location %>
+            <% weather_api = WeatherApi.new(location, DateTime.new(run.start_time.year, run.start_time.month, run.start_time.day, run.start_time.hour, run.start_time.min, run.start_time.sec, run.start_time.zone)) %>
+            <% weather_for_this_location = weather_api.get_weather %>
+            <p><%= weather_for_this_location["temperature"].to_i %>° <span>&#176;</span>C</p>
           </div>
         </div>
       </div>
