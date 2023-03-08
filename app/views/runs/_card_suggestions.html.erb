@@ -11,7 +11,7 @@
           <h2><span><%= run.start_time.strftime("%H:%M") %></span> <span><%= run.location.name %></span></h2>
         </div>
         <div class="d-flex justify-content-between  pt-1 w-100 card-run-weather-info">
-          <div><i class="fa-solid fa-wind me-1"></i><span class="wind-font me-1">Wind</span><%= weather_for_this_location["wind"].to_i %></div>
+          <div><i class="fa-solid fa-wind me-1"></i><span class="wind-font me-1">Wind</span><%= weather_for_this_location["wind"].to_i %>m/s</div>
           <div>
             <% w = run.weather_description %>
             <% if w.include? "cloud" %>

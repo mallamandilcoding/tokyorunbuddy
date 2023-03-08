@@ -19,5 +19,5 @@ application.register("scheduled", ScheduledController)
 import ReadMore from 'stimulus-read-more'
 application.register('read-more', ReadMore)
 
-// import Carousel from 'stimulus-carousel'
-// application.register('carousel', Carousel)
+import Carousel from 'stimulus-carousel'
+application.register('carousel', Carousel)

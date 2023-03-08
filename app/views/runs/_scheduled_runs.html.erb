@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col">
     <div class="scheduledruns-div">
-      <h1><strong>Coming Up <i class="fa-solid fa-calendar-days"></i></strong></h1>
+      <h1><strong><i class="fa-solid fa-calendar-days"></i> Coming Up </strong></h1>
       <% runs.each do |run| %>
         <div class="each-scheduled-runs-div d-flex align-items-center">
           <i class="fas fa-circle dot-circle me-2"></i>
@@ -24,11 +24,11 @@
             <p><i class="fas fa-map-marker-alt me-2"></i><%= run.location.name %></p>
           </div>
           <div class="iconandtemp">
-            <span class="weather-icon"><i class="far fa-sun"></i></span>
+            <span class="weather-icon"><i class="fa-solid fa-temperature-high me-1"></i></span>
             <% location = run.location %>
             <% weather_api = WeatherApi.new(location, DateTime.new(run.start_time.year, run.start_time.month, run.start_time.day, run.start_time.hour, run.start_time.min, run.start_time.sec, run.start_time.zone)) %>
             <% weather_for_this_location = weather_api.get_weather %>
-            <p><%= weather_for_this_location["temperature"].to_i %>° <span>&#176;</span>C</p>
+            <p><%= weather_for_this_location["temperature"].to_i %> <span>&#176;</span>C</p>
           </div>
         </div>
       </div>
