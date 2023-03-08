@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     suggestions_path
   end
 
+  def after_sign_out_path_for scope
+    new_user_session_path
+  end
+
   private
 
   def skip_pundit?

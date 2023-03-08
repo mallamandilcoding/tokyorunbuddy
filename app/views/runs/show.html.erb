@@ -1,5 +1,8 @@
 <div data-controller="editpage">
-  <div class="bg-gradient m-0" data-controller="scheduled" data-url="https://www.google.com">
+  <% tokyo_time = ActiveSupport::TimeZone.new("Tokyo") %>
+  <% start_time = tokyo_time.at(@run.start_time) %>
+  <% end_time = tokyo_time.at(@run.end_time) %>
+  <div class="bg-gradient m-0" data-controller="scheduled" data-url=<%= "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=#{start_time.strftime("%Y%m%dT%H%M%S%z")}/#{end_time.strftime("%Y%m%dT%H%M%S%z")}&location=#{@run.location.name.gsub(" ","+")}&text=Run+at+#{@run.location.name.gsub(" ","+")}" %>>
     <div class="run-image">
       <%= render 'runs/show_carousel', run: @run %>
     </div>

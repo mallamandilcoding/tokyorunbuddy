@@ -78,7 +78,7 @@ locations = [
     description: "Yamashita Park (山下公園, Yamashita Kōen) is a public park that stretches about 750 meters along Yokohama's waterfront. The park is about a hundred meters wide, and consists mostly of open green space. One of the park's main features is a wide path that runs along the water. It is usually quite busy, with many people enjoying the view of the bay and the ships passing by. At the park's southern end, the path leads into the Rinkosen promenade, which passes by the Osanbashi Pier and leads to Minato Mirai. The walk is a pleasant way to travel between the areas."
   },
   {
-    name: "Imperial Palace Loop",
+    name: "Imperial Palace",
     latitude: 35.6825,
     longitude: 139.7521,
     description: "The current Imperial Palace (皇居, Kōkyo) is located on the former site of Edo Castle, a large park area surrounded by moats and massive stone walls in the center of Tokyo, a short walk from Tokyo Station. The palace lies at the heart of Tokyo. The 5 km circuit around the palace is extremely popular among runners, and many races have been held there over the years."
@@ -90,19 +90,19 @@ locations = [
     description: "Futako-Tamagawa Park (二子玉川公園, Futako-Tamagawa Kōen) beside the Tama River is about an eight-minute walk from the station nearby. The large park is perfect for families with kids or pets. The open banks facing the river are slightly inclined, and it's here that you can get a picturesque view of the sunset over Tokyo on a clear day, you'll be able to see Mt Fuji in the distance. For runners, head for the long running course along the Tama River, which is one of the best ways to go on a long, uninterrupted run in Tokyo."
   },
   {
-    name: "Meiji Jingu Gaien Course",
+    name: "Meiji Jingu Gaien",
     latitude: 35.674996,
     longitude: 139.720397,
     description: "This route at Meiji Jingu Gaien (明治神宮外苑, Meiji Jingu Gaien) starts near Hirakawacho and takes you down the affluent, landscaped neighborhood of Akasaka, past the grounds of the Akasaka Palace, a majestic Neo-Baroque Western style building originally built for the Crown Prince in 1909, and slightly uphill to the hip and verdant Aoyama Itchome. Stopping here and turning back is a little more than 5 km but going around the Gaien loop adds an extra 1.3 km to your run. At night, enjoy the illumination of the memorial building. This run turns to brilliant yellow, red and orange in the fall."
   },
   {
-    name: "Meguro River Run",
+    name: "Meguro River",
     latitude: 35.645192,
     longitude: 139.699694,
     description: "What could be more charming than a 3.5 km stretch (7 km round trip) of river covered with the generous foliage of cherry trees leaning over it? Meguro River is one of Tokyo's celebrated spots during the sakura season. While spring is probably its most breathtaking season, this dedicated pedestrian trail between Ikejiri-Ohashi Station (Den-en Toshi Line) and Meguro Station (served by multiple lines) is still delightful in that off-the-beaten path way all year round. Pass by quiet residential areas, small cafes and restaurants, bridges, parks, temples and museums."
   },
   {
-    name: "Odaiba Waterfront Course",
+    name: "Odaiba Seaside Park",
     latitude: 35.6294389,
     longitude: 139.7749812,
     description: "Just across the Rainbow Bridge from central Tokyo is a large artificial island in Tokyo Bay where you can run along the waterfront to take in the expansive views of sea and sky. Odaiba was originally built in the 1850s to fortify the city's defense but later developed into a major leisure area. Beginning at the Marine House, you can get in a 3, 5 or 7 km run. It is best accessed by Daiba Station on the Yurikamome Line."
@@ -126,7 +126,7 @@ locations = [
     description: "Koganei Park, in Tokyo's western suburbs, is the city's second largest park. This park is a special treat in the spring, plum trees blossoming in March and a festival in early April celebrating the park's 2,000 cherry trees. There are lovely tree-lined paths, fields, a number of other sports facilities in the park as well, including tennis courts,a small cycling course, and the Edo-Tokyo Open Air Architectural Museum. For runners, there are several marked loops, with one at just over 5k being the longest."
   },
   {
-    name: "Sumida River Trail",
+    name: "Sumida River",
     latitude: 35.710293,
     longitude: 139.798185,
     description: "This is a riverside route in the centrally located Asakusa area of Tokyo. A pleasant, flat path runs alongside the west side of the Sumida River, from the Azuma Bridge south to the Sumida River Large Bridge. Distance is 4.4 km one-way. Just north of the Asakusa Station (northern end of path) is the Sensō-ji Temple — Tokyo's oldest temple."
@@ -162,10 +162,10 @@ locations = Location.all
 
 runs = [
   {
-    start_time: DateTime.new(2023, 3, 8, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 8, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 9, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 9, 18, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "clear sky",
+    weather_description: "Clear sky",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 10,
@@ -200,10 +200,10 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 13, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 13, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 13, 12, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 13, 14, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "Clear sky",
+    weather_description: "Scattered clouds: 25-50%",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 17,
@@ -212,10 +212,10 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 16, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 14, 16, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 14, 18, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "Clear sky",
+    weather_description: "Scattered clouds: 25-50%",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 14,
@@ -224,8 +224,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 16, 18, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 16, 20, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 15, 18, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 15, 20, 0, 0, '+9'),
     status: "suggested",
     weather_description: "Clear sky",
     wind: 8.0, humidity: 63.0,
