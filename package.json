@@ -8,6 +8,7 @@
     "bootstrap": "^5.2.3",
     "stimulus-carousel": "^5.0.1",
     "stimulus-read-more": "^4.1.0",
+    "swiper": "^9.1.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
