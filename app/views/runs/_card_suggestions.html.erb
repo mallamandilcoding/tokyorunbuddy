@@ -6,7 +6,7 @@
     <%= link_to run_path(run), class: "card-run", style: 'text-decoration: none;' do %>
       <%= cl_image_tag run.location.photos.first.key, class: "rounded-3" %>
       <div class="d-flex flex-column card-run-infos align-items-center flex-grow-1">
-        <div class="d-flex flex-column pt-3card-run-text text-center">
+        <div class="d-flex flex-column pt-3 card-run-text text-center">
           <h2><strong><%= run.start_time.strftime("%A, %B %d") %></strong></h2>
           <h2><span><%= run.start_time.strftime("%H:%M") %></span> <span><%= run.location.name %></span></h2>
         </div>
