@@ -46,7 +46,7 @@ class RunsController < ApplicationController
       @temperature = {'cold' => cold_temperatures, 'warm' => warm_temperatures, 'hot' => hot_temperatures}.max_by{|k, v| v}
       if time < Time.parse("12pm")
         count_morn += 1
-      elsif time > Time.parse("12pm") && time < Time.parse("6pm")
+      elsif time > Time.parse("12pm") && time < Time.parse("5pm")
         count_afternoon += 1
       else
         count_evening += 1
