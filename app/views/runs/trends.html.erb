@@ -6,24 +6,27 @@
   <div class="shadow-sm rounded">
     <h1 class="text-primary text-center font-weight-bold">Total <%= @completed_runs.count %> <i class="fa-solid fa-person-running"></i></h1>
 
-    <div class="d-flex justify-content-center">
-      <%= pie_chart @location_counts, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Locations", tooltips: { callbacks: { label: 'function(tooltipItem, data) { var value = data.datasets[0].data[tooltipItem.index]; if (value == Math.max(...data.datasets[0].data)) { return value + " *"; } else { return value; } }' } }  %>
+    <div class="d-flex justify-content-center mb-3">
+      <%= line_chart @location_counts,height: "225px",width: "225px", title: "Locations", tooltips: { callbacks: { label: 'function(tooltipItem, data) { var value = data.datasets[0].data[tooltipItem.index]; if (value == Math.max(...data.datasets[0].data)) { return value + " *"; } else { return value; } }' } }  %>
       <span class="d-flex align-items-center ms-2">
       <%# <span>Frequent Run location: <strong> = @location[0] </strong></span> %>
       </span>
     </div>
-    <div class="d-flex justify-content-center">
-      <%= pie_chart @time_of_days, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Time Of Day" %>
+    <div class="d-flex justify-content-center mb-3">
+      <%= pie_chart @temperatures,legend: "right",height: "225px",width: "225px", title: "Time Of Day" %>
       <span class="d-flex align-items-center ms-2">
       <%# <span>Frequent Time Of The Day: <strong> <%= @time_of_day[0] </strong></span> %>
       </span>
     </div>
-    <div class="d-flex justify-content-center">
-      <%= pie_chart @temperatures, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Temperature" %>
+    <div class="d-flex justify-content-center mb-">
+      <%= bar_chart @time_of_days,height: "240px",width: "240px", title: "Temperature" %>
+
+      <%#= pie_chart @temperatures, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Temperature" %>
       <span class="d-flex align-items-center ms-2">
       <%# <span>Frequent Location Temperature: <strong> <%=@temperature[0] </strong></span> %>
       </span>
     </div>
+
   </div>
 </div>
 
