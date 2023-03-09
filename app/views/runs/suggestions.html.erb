@@ -1,3 +1,6 @@
+<% content_for :meta_title do %>
+  <% "#{current_user.first_name} is checking out run suggestions on #{DEFAULT_META["meta_product_name"]}!" %>
+<% end %>
 <div class="container-fluid bg-white vh-100 pt-3">
   <%= render "scheduled_runs", runs: @upcoming_runs %>
   <div class="row text-primary">

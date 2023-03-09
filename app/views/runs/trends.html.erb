@@ -1,3 +1,6 @@
+<% content_for :meta_title do %>
+  <% "#{current_user.first_name} is checking out run trends on #{DEFAULT_META["meta_product_name"]}!" %>
+<% end %>
 <div class="container">
 <div class="row mt-2">
   <div class="shadow-sm rounded">
@@ -29,5 +32,4 @@
     <h1 class="text-primary text-center">Completed Runs</h1>
     <%= render "card_suggestions", runs: @completed_runs %>
   </div>
-
 </div>
