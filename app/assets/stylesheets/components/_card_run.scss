@@ -25,15 +25,15 @@
 }
 
 .card-run h1,h2 {
-  font-size: 16px;
-  // font-weight: bold;
-  margin: 0;
+  // font-size: 16px;
+  // // font-weight: bold;
+  // margin: 0;
   color: #03045E;
 }
 
 .card-run p {
   font-size: 10px;
-  line-height: 1.4;
+  line-height: 1;
   opacity: .7;
   margin-top: 8px;
 
@@ -41,6 +41,7 @@
 
 .card-run .card-run-infos {
   padding: 16px;
+  margin: -4px;
 }
 
 .bg-suggested {

@@ -4,7 +4,7 @@
       <h1><strong><i class="fa-solid fa-calendar-days"></i> Coming Up </strong></h1>
       <% runs.each do |run| %>
         <div class="each-scheduled-runs-div d-flex align-items-center">
-          <i class="fas fa-circle dot-circle me-2"></i>
+          <%# <i class="fas fa-circle dot-circle me-2"></i> %>
           <div class="info-div mb-3 p-2 d-flex justify-content-between flex-grow-1">
             <%= link_to "",run_path(run), class: "clicksuggestion" %>
             <div class="date-div">
@@ -19,11 +19,11 @@
             <p><%= formatted_date %></p>
             <p><%= run.start_time.strftime("%A") %></p>
           </div>
-          <div class="timeandplacediv">
+          <div class="timeandplacediv text-start">
             <p><i class="far fa-clock me-2"></i><%= run.start_time.strftime("%H:%M") %></p>
             <p><i class="fas fa-map-marker-alt me-2"></i><%= run.location.name %></p>
           </div>
-          <div class="iconandtemp">
+          <div class="iconandtemp text-start">
             <span class="weather-icon"><i class="fa-solid fa-temperature-high me-1"></i></span>
             <% location = run.location %>
             <% weather_api = WeatherApi.new(location, DateTime.new(run.start_time.year, run.start_time.month, run.start_time.day, run.start_time.hour, run.start_time.min, run.start_time.sec, run.start_time.zone)) %>
