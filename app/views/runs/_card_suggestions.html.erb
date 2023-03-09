@@ -18,9 +18,9 @@
           <div>
             <% w = run.weather_description %>
             <% if w.include? "cloud" %>
-              <% <i class="fa-solid fa-cloud"></i> Cloudy %>
+              <i class="fa-solid fa-cloud"></i> Cloudy
             <% elsif w.include? "rainy" %>
-              <% <i class="fas fa-cloud-showers-heavy"></i> Rainy %>
+              <i class="fas fa-cloud-showers-heavy"></i> Rainy
             <% else %>
               <i class="fa-solid fa-sun me-1"></i> Sunny
             <% end %>
