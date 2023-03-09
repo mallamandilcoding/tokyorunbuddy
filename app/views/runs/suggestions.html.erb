@@ -3,8 +3,12 @@
 <% end %>
 <div class="container-fluid bg-white vh-100 pt-3">
   <%= render "scheduled_runs", runs: @upcoming_runs %>
-  <div class="row text-primary">
-    <h1><strong>Suggestions</strong></h1>
+  <div class="row text-primary suggestion-info">
+    <h1>
+    <%= image_tag "bluelogo.png", height:50, width:50 %>
+    <strong>Suggestions</strong>
+    </h1>
+    <p>Based on your time preference of evening </p>
     <%= render "runs/card_suggestions", runs: @suggested_runs %>
   </div>
 </div>

@@ -42,3 +42,18 @@
     }
   }
 }
+
+.suggestion-info{
+  h1{
+    margin-bottom: 0px !important;
+    strong{
+      margin-left: -12px;
+    }
+  }
+  p{
+    font-size: 13px;
+    color: gray;
+    margin-left: 16px;
+    margin-top: -4px;
+  }
+}
