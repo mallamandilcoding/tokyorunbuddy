@@ -6,10 +6,13 @@
       <div class="d-flex flex-column card-run-infos align-items-center">
         <div class="d-flex flex-column pt-3 card-run-text text-start ms-1">
           <h5><strong><%= run.start_time.strftime("%a, %B %d") %></strong></h5>
-          <h6><strong><%= run.start_time.strftime("%H:%M") %></strong> <span><%= run.location.name %></span></h6>
+          <h6 class="d-flex"><strong class="me-2"><%= run.start_time.strftime("%H:%M") %></strong> <span><%= run.location.name %></span></h6>
         </div>
-        <div class="d-flex justify-content-between  pt-1 w-100 card-run-weather-info">
-          <div>
+
+        <div class="d-flex pt-1 w-100 card-run-weather-info">
+
+          <div class="me-3">
+
             <% w = run.weather_description %>
             <% if w.include? "cloud" %>
               <i class="fa-solid fa-cloud"></i> Cloudy

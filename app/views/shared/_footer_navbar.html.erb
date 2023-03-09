@@ -1,18 +1,24 @@
-<footer class="container-fluid d-flex pt-2 justify-content-around">
+<footer class="container-fluid d-flex pt-2 justify-content-around" data-controller="loader">
+  <div class="loader" data-loader-target="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <span class="ms-2 icon-animation"><%= image_tag "bluelogo.png",height:50, width:50 %></span>
+    </div>
   <div class="navbar-footer-button">
-    <%= link_to suggestions_path, class: "d-flex flex-column  #{ params[:controller] == 'runs' && params[:action] == 'suggestions' ? 'active' : '' }" do %>
+    <%= link_to suggestions_path, class: "d-flex flex-column  #{ params[:controller] == 'runs' && params[:action] == 'suggestions' ? 'active' : '' }",data: {action: "click->loader#showLoader"} do %>
       <i class="fa-solid fa-house"></i>
       <span class="navbar-footer-word">Home</span>
     <% end %>
   </div>
   <div class="navbar-footer-button">
-     <%= link_to runs_path, class: "d-flex flex-column #{params[:controller] == 'runs' && params[:action] == 'index' ? 'active' : '' }"  do %>
+     <%= link_to runs_path, class: "d-flex flex-column #{params[:controller] == 'runs' && params[:action] == 'index' ? 'active' : '' }",data: {action: "click->loader#showLoader"}   do %>
       <i class="fa-solid fa-person-running"></i>
       <span class="navbar-footer-word">Runs</span>
     <% end %>
   </div>
   <div class="navbar-footer-button">
-     <%= link_to trends_runs_path, class: "d-flex flex-column #{params[:controller] == 'runs' && params[:action] == 'trends' ? 'active' : '' }" do %>
+     <%= link_to trends_runs_path, class: "d-flex flex-column #{params[:controller] == 'runs' && params[:action] == 'trends' ? 'active' : '' }",data: {action: "click->loader#showLoader"}  do %>
       <i class="fa-solid fa-chart-simple"></i>
       <span class="navbar-footer-word">Trends</span>
     <% end %>
