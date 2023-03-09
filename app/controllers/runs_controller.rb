@@ -21,26 +21,32 @@ class RunsController < ApplicationController
     count_evening = 0
     temperature = 0
     cold_temperatures = 0
+    cool_temperatures = 0
+    comfortable_temperatures = 0
     warm_temperatures = 0
     hot_temperatures = 0
-    @location_counts = @completed_runs.group_by { |run| run.location.name}.transform_values{|val| val.count}
-    @location = @completed_runs.group_by { |run| run.location.name}.transform_values{|val| val.count}.max_by{|k, v| v}
+    @location_counts = @completed_runs.group_by { |run| run.location.name }.transform_values{ |val| val.count }
+    # @location = @completed_runs.group_by { |run| run.location.name}.transform_values{|val| val.count}.max_by{|k, v| v}
     @completed_runs.each do |t|
       time = Time.parse(t.start_time.strftime("%I:%M %p"))
       # time = Time.parse("1pm")
       case t.temperature
-        when 0..15
+        when 0..12
           cold_temperatures += 1
-        when 16..25
+        when 13..17
+          cool_temperatures += 1
+        when 18..23
+          comfortable_temperatures += 1
+        when 24..28
           warm_temperatures += 1
         else
           hot_temperatures += 1
       end
-      @temperatures = {'cold' => cold_temperatures, 'warm' => warm_temperatures, 'hot' => hot_temperatures}
+      @temperatures = {'cold' => cold_temperatures, 'cool' => cool_temperatures, 'comfortable' => comfortable_temperatures, 'warm' => warm_temperatures, 'hot' => hot_temperatures}
       @temperature = {'cold' => cold_temperatures, 'warm' => warm_temperatures, 'hot' => hot_temperatures}.max_by{|k, v| v}
       if time < Time.parse("12pm")
         count_morn += 1
-      elsif time > Time.parse("12pm") && time < Time.parse("6pm")
+      elsif time > Time.parse("12pm") && time < Time.parse("5pm")
         count_afternoon += 1
       else
         count_evening += 1
