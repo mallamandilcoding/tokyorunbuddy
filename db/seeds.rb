@@ -162,8 +162,8 @@ locations = Location.all
 
 runs = [
   {
-    start_time: DateTime.new(2023, 3, 9, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 9, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 9, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 9, 19, 0, 0, '+9'),
     status: "suggested",
     weather_description: "Clear sky",
     wind: 8.0, humidity: 63.0,
@@ -174,37 +174,25 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 12, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 12, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 12, 18, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 12, 20, 0, 0, '+9'),
     status: "scheduled",
     weather_description: "Clear sky",
     wind: 8.0,
     humidity: 63.0,
     precipitation: 0.0,
-    temperature: 10,
+    temperature: 16,
     air_quality: 1,
     user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 11, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 11, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 11, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 11, 19, 0, 0, '+9'),
     status: "scheduled",
     weather_description: "Clear sky",
     wind: 7.0,
     humidity: 65,
-    precipitation: 0.0,
-    temperature: 14,
-    air_quality: 1,
-    user: User.find_by(first_name: "Kurisu"),
-    location: locations.sample
-  },
-  {
-    start_time: DateTime.new(2023, 3, 13, 12, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 13, 14, 0, 0, '+9'),
-    status: "suggested",
-    weather_description: "Scattered clouds: 25-50%",
-    wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 17,
     air_quality: 1,
@@ -212,10 +200,34 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 14, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 14, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 15, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 15, 19, 0, 0, '+9'),
     status: "suggested",
-    weather_description: "Scattered clouds: 25-50%",
+    weather_description: "Clear sky",
+    wind: 8.0, humidity: 63.0,
+    precipitation: 0.0,
+    temperature: 15,
+    air_quality: 1,
+    user: User.find_by(first_name: "Kurisu"),
+    location: locations.sample
+  },
+  {
+    start_time: DateTime.new(2023, 3, 16, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 16, 19, 0, 0, '+9'),
+    status: "suggested",
+    weather_description: "Clear sky",
+    wind: 8.0, humidity: 63.0,
+    precipitation: 0.0,
+    temperature: 16,
+    air_quality: 1,
+    user: User.find_by(first_name: "Kurisu"),
+    location: locations.sample
+  },
+  {
+    start_time: DateTime.new(2023, 3, 16, 19, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 16, 22, 0, 0, '+9'),
+    status: "suggested",
+    weather_description: "Clear sky",
     wind: 8.0, humidity: 63.0,
     precipitation: 0.0,
     temperature: 14,
@@ -224,39 +236,14 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 3, 15, 18, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 15, 20, 0, 0, '+9'),
-    status: "suggested",
-    weather_description: "Clear sky",
-    wind: 8.0, humidity: 63.0,
-    precipitation: 0.0,
-    temperature: 13,
-    air_quality: 1,
-    user: User.find_by(first_name: "Kurisu"),
-    location: locations.sample
-  },
-  {
-    start_time: DateTime.new(2023, 3, 5, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 5, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 3, 5, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 3, 5, 19, 0, 0, '+9'),
     status: "completed",
     weather_description: "Few clouds: 11-25%",
     wind: 8.0,
     humidity: 67.0,
     precipitation: 0.0,
     temperature: 11,
-    air_quality: 1,
-    user: User.find_by(first_name: "Kurisu"),
-    location: locations.sample
-  },
-  {
-    start_time: DateTime.new(2023, 3, 5, 12, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 3, 5, 14, 0, 0, '+9'),
-    status: "completed",
-    weather_description: "Scattered clouds: 25-50%",
-    wind: 6.0,
-    humidity: 69.0,
-    precipitation: 0.0,
-    temperature: 12,
     air_quality: 1,
     user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
@@ -275,8 +262,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 2, 26, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 2, 26, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 2, 26, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 26, 19, 0, 0, '+9'),
     status: "completed",
     weather_description: "Scattered clouds: 25-50%",
     wind: 5.0,
@@ -288,8 +275,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 2, 25, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 2, 25, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 2, 25, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 25, 19, 0, 0, '+9'),
     status: "completed",
     weather_description: "Few clouds: 11-25%",
     wind: 8.0,
@@ -301,8 +288,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 2, 19, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 2, 19, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 2, 19, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 19, 19, 0, 0, '+9'),
     status: "completed",
     weather_description: "Scattered clouds: 25-50%",
     wind: 7.0,
@@ -314,8 +301,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 2, 18, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 2, 18, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 2, 18, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 18, 19, 0, 0, '+9'),
     status: "completed",
     weather_description: "Clear sky",
     wind: 5.0,
@@ -327,8 +314,8 @@ runs = [
     location: locations.sample
   },
   {
-    start_time: DateTime.new(2023, 2, 12, 16, 0, 0, '+9'),
-    end_time: DateTime.new(2023, 2, 12, 18, 0, 0, '+9'),
+    start_time: DateTime.new(2023, 2, 12, 17, 0, 0, '+9'),
+    end_time: DateTime.new(2023, 2, 12, 19, 0, 0, '+9'),
     status: "completed",
     weather_description: "Scattered clouds: 25-50%",
     wind: 6.0,
@@ -343,7 +330,5 @@ runs = [
 
 puts "Creating runs..."
 Run.create!(runs)
-
-
 
 puts "Finished!"
