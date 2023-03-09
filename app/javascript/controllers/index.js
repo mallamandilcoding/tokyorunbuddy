@@ -10,14 +10,11 @@ application.register("editpage", EditpageController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LoaderController from "./loader_controller"
+application.register("loader", LoaderController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
 import ScheduledController from "./scheduled_controller"
 application.register("scheduled", ScheduledController)
-
-import ReadMore from 'stimulus-read-more'
-application.register('read-more', ReadMore)
-
-import Carousel from 'stimulus-carousel'
-application.register('carousel', Carousel)
