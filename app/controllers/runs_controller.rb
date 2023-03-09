@@ -98,6 +98,11 @@ class RunsController < ApplicationController
   def show
     @run = Run.find(params[:id])
     @scheduled = @run.status == "scheduled"
+    location = @run.location
+    # weather_api = WeatherApi.new(location, DateTime.new(@run.start_time.year, @run.start_time.month, @run.start_time.day, @run.start_time.hour, @run.start_time.min, @run.start_time.sec, @run.start_time.zone))
+    @weather_for_this_location = @run.weather
+    @air_quality = WeatherApi.air_quality_level(@weather_for_this_location["air_quality"])
+    @humidity_description = WeatherApi.humidity_level(@weather_for_this_location["humidity"].to_i)
   end
 
   def update
@@ -126,42 +131,6 @@ class RunsController < ApplicationController
 
   def run_params
     params.require(:run).permit(:start_time, :end_time, :status, :weather_description, :wind, :humidity, :precipitation, :air_quality, :temperature)
-
   end
 
-  # def generate_runs
-  #   freetimes = generate_freetime
-  #   freetimes.each do |freetime|
-  #     weather_api = WeatherApi.new(location)
-  #     weather_for_this_location = weather_api.get_weather
-  #     run_info = {
-  #     date: freetime['date'],
-  #     start_time: freetime['start_time'],
-  #     end_time: freetime['end_time'],
-  #     status: "suggested",
-  #     weather_description: weather_for_this_location["weather_description"],
-  #     wind: weather_for_this_location["wind"],
-  #     humidity: weather_for_this_location["humidity"],
-  #     precipitation: weather_for_this_location["precipitation"],
-  #     temperature: weather_for_this_location["temperature"],
-  #     air_quality: weather_for_this_location["air_quality"],
-  #     user: current_user,
-  #     location: current_user.locations.sample
-  #     }
-  #     @run = Run.create(run_info)
-  #   end
-  # end
-
-  # def generate_freetime
-  #   [
-  #   {date: Date.new(2023, 3, 3),
-  #   start_time: Time.new(2023, 3, 3, 20, 0),
-  #   end_time: Time.new(2023, 3, 3, 22, 0)},
-  #   {
-  #     date: Date.new(2023, 3, 4),
-  #   start_time: Time.new(2023, 3, 4, 16, 0),
-  #   end_time: Time.new(2023, 3, 4, 18, 0),
-  #   }
-  #   ]
-  # end
 end
