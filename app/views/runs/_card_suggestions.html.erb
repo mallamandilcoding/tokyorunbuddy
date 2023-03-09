@@ -13,14 +13,14 @@
         <div class="d-flex justify-content-between  pt-1 w-100 card-run-weather-info">
           <div><i class="fa-solid fa-wind me-1"></i><span class="wind-font me-1">Wind</span><%= weather_for_this_location["wind"].to_i %>m/s</div>
           <div>
-            <% w = run.weather_description %>
-            <% if w.include? "cloud" %>
-              <i class="fa-solid fa-cloud"></i> Cloudy
-            <% elsif w.include? "rainy" %>
-              <i class="fas fa-cloud-showers-heavy"></i> Rainy
-            <% else %>
+            <%# w = run.weather_description %>
+            <%# if w.include? "cloud" %>
+              <%# <i class="fa-solid fa-cloud"></i> Cloudy %>
+            <%# elsif w.include? "rainy" %>
+              <%# <i class="fas fa-cloud-showers-heavy"></i> Rainy %>
+            <%# <% else %>
               <i class="fa-solid fa-sun me-1"></i> Sunny
-            <% end %>
+            <%# <% end %>
           </div>
           <div><i class="fa-solid fa-temperature-high me-1"></i><%= weather_for_this_location["temperature"] %><span>&#176;</span>C</div>
         </div>
