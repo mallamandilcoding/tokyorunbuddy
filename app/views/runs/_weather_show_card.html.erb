@@ -1,30 +1,24 @@
-<% location = @run.location %>
-<% weather_api = WeatherApi.new(location, DateTime.new(@run.start_time.year, @run.start_time.month, @run.start_time.day, @run.start_time.hour, @run.start_time.min, @run.start_time.sec, @run.start_time.zone)) %>
-<% weather_for_this_location = weather_api.get_weather %>
 <div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
   <div class="position-absolute top-0 start-100 translate-middle">
-    <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"><i class="fa-solid fa-temperature-high"></i> <%= weather_for_this_location["temperature"].to_i %>°<span></h1>
+    <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"> <% unless run.status == "completed" %><%= @weather_for_this_location["temperature"].to_i %> <i class="fa-solid fa-temperature-high"></i><span><% else %><%= run.temperature %><% end %></h1>
       </div>
       <h1 class="border-bottom w-100">Weather Forecast</h1>
-      <p><%= @run.weather_description.capitalize %></p>
-      <div class="d-flex flex-column weather-details">
-        <div><i class="fa-solid fa-water"></i> HUMIDITY <%= weather_for_this_location["humidity"].to_i %>%</div>
-        <div><i class="fa-solid fa-wind"></i>  WIND <%= weather_for_this_location["wind"].to_i %>m/s</div>
-        <div><i class="fa-solid fa-sun"></i>  WEATHER <%= weather_for_this_location["weather_description"] %></div>
-
-        <div><i class="fa-solid fa-braille"></i> AIR QUALITY
-          <% case weather_for_this_location["air_quality"] %>
-            <% when 1 %>
-            <%= 'Good' %>
-            <% when 2 %>
-            <%= 'Fair' %>
-            <% when 3 %>
-            <%= 'Moderate' %>
-            <% when 4 %>
-            <%= 'Poor' %>
-            <% else %>
-            <%= 'Very Poor' %>
-          <% end %>
+      <p><%= @weather_for_this_location["weather_description"] %></p>
+      <div class="d-flex flex-column weather-details" style="min-width: -webkit-fill-available;">
+        <div class="d-flex justify-content-between border-bottom w-100">
+          <div class="border-bottom w-100"><i class="fa-solid fa-wind"></i>  WIND </div>
+          <% unless run.status == "completed" %><%= @weather_for_this_location["wind"].to_i %><% else %><%= run.wind.to_i %><% end %>m/s
         </div>
-        
+        <div class="d-flex justify-content-between border-bottom w-100 mt-3">
+          <div><i class="fa-solid fa-water"></i> HUMIDITY </div>
+          <% unless run.status == "completed" %><%= @weather_for_this_location["humidity"]%> <% else %><%= run.humidity.to_i %><% end %>%
+        </div>
+        <div class="mb-3" style="font-size: 14px;"><%= @humidity_description %></div>
+        <div class="d-flex justify-content-between border-bottom w-100">
+          <div class="border-bottom w-100"><i class="fa-solid fa-braille"></i> AIR QUALITY
+          </div>
+          <% unless run.status == "completed" %><%= @weather_for_this_location["air_quality"] %><% else %><%= run.air_quality %><% end %>AQI
+        </div>
+        <div class="mb-3" style="font-size: 14px;"><%= @air_quality %></div>
+      </div>
     </div>
