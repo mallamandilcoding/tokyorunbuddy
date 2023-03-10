@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
-    <meta name="turbolinks-visit-control" content="reload">
+    <%# <meta name="turbolinks-visit-control" content="reload"> %>
   </head>
   <body class="d-flex flex-column min-vh-100" data-controller="loader">
     <% unless controller_name == 'runs' && action_name == 'show' %>
