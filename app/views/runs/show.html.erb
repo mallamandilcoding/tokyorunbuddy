@@ -8,10 +8,9 @@
   <% cl_image_path @run.location.photos.first.key %>
 <% end %>
 <div data-controller="editpage">
-  <% tokyo_time = ActiveSupport::TimeZone.new("Tokyo") %>
-  <% start_time = tokyo_time.at(@run.start_time) %>
-  <% end_time = tokyo_time.at(@run.end_time) %>
-  <div class="bg-gradient m-0" data-controller="scheduled" data-url=<%= "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=#{start_time.strftime("%Y%m%dT%H%M%S%z")}/#{end_time.strftime("%Y%m%dT%H%M%S%z")}&location=#{@run.location.name.gsub(" ","+")}&text=Run+at+#{@run.location.name.gsub(" ","+")}" %>>
+  <% start_time = @run.start_time %>
+  <% end_time = @run.end_time %>
+  <div class="bg-gradient m-0" data-controller="scheduled" data-url=<%= "https://calendar.google.com/calendar/render?action=TEMPLATE&dates=#{start_time.strftime("%Y%m%dT%H%M%S")}/#{end_time.strftime("%Y%m%dT%H%M%S")}&location=#{@run.location.name.gsub(" ","+")}&text=Run+at+#{@run.location.name.gsub(" ","+")}" %>>
     <%= render 'runs/show_carousel', run: @run %>
     <div data-scheduled-target="bgcolor" class="container-fluid vh-100 pt-3 <%= @scheduled ? "bg-scheduled" : "bg-suggested" %> ">
       <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
