@@ -4,11 +4,23 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["bgcolor", "text", "temperature", "button", "inputvalue", "form"]
   connect() {
-    console.log("connected")
-    console.log(this.bgcolorTarget)
-    console.log(this.textTarget)
-    console.log(this.temperatureTarget)
-    console.log(this.buttonTarget)
+    // console.log("connected")
+    // console.log(this.bgcolorTarget)
+    // console.log(this.textTarget)
+    // console.log(this.temperatureTarget)
+    // console.log(this.buttonTarget)
+    //  if (this.addbuttonTarget){
+    //     this.addbuttonTarget.classList.add("d-none")
+    //   }
+      // window.addEventListener('load', () => {
+      //   if (this.formTarget){
+      //     this.formTarget.classList.remove("d-none");
+      //     this.formTarget.style["z-index"] = 1;
+      //   }
+      //   else{
+      //     this.formTarget.classList.add("d-none");
+      //   }
+      // });
   }
 
   change(event) {
@@ -36,4 +48,6 @@ export default class extends Controller {
     this.temperatureTarget.classList.toggle("bg-warning")
     this.temperatureTarget.classList.toggle("bg-primary")
   }
+
+
 }
