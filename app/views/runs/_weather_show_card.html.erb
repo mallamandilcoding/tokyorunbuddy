@@ -1,6 +1,6 @@
 <div class="d-flex flex-column align-items-start pt-4 px-3 mt-5 h-50 text-primary card-weather" id="temperature-card">
   <div class="position-absolute top-0 start-100 translate-middle">
-    <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"> <% unless run.status == "completed" %><%= @weather_for_this_location["temperature"].to_i %> <i class="fa-solid fa-temperature-high"></i><span><% else %><%= run.temperature %><% end %></h1>
+    <h1 class="display-2"><span data-scheduled-target="temperature" id="temperature" class="top-0 translate-middle badge rounded-pill <%= @scheduled ? "bg-warning" : "bg-primary" %>"> <% unless run.status == "completed" %><%= @weather_for_this_location["temperature"].to_i %> <span><% else %><%= run.temperature %><% end %> <i class="fa-solid fa-temperature-high"></i></h1>
       </div>
       <h1 class="border-bottom w-100">Weather Forecast</h1>
       <p><%= @weather_for_this_location["weather_description"] %></p>
