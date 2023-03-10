@@ -16,7 +16,9 @@
     <div data-scheduled-target="bgcolor" class="container-fluid vh-100 pt-3 <%= @scheduled ? "bg-scheduled" : "bg-suggested" %> ">
       <div data-scheduled-target="text" class="d-flex justify-content-between mx-3 card-date-time <%= "text-warning" if @scheduled %>">
       </div>
-      <%= render 'runs/location_date_card', run: @run %>
+      <% unless @run.status == 'completed' %>
+        <%= render 'runs/location_date_card', run: @run %>
+      <% end %>
       <div class ="d-flex flex-column text-primary p-3 card-location-info">
         <h1 class="border-bottom w-100"><strong><%= @run.location.name %></strong></h1>
         <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Less">
