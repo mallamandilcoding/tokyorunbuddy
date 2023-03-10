@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
@@ -10,6 +10,7 @@
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    margin-bottom: 20px;
   }
 
   .rails-default-error-page div.dialog {
@@ -51,16 +52,46 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  *{
+    margin:0;
+    padding:0;
+  }
+
+  .login-container {
+    background-color: #00B4D8;
+    /* align-items: center; */
+    height: 100vh;
+  }
+
+  .login-container img{
+    width:100%;
+  }
+
+  .backbutton{
+    text-decoration: none;
+    color: white;
+    background: #FF6D00;
+    padding: 8px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+<body>
+  <div class="container-fluid">
+    <div class="login-container">
+      <img src="https://i.postimg.cc/137XDqNg/TRB-white.png" alt="logo" srcset="">
+      <div class="rails-default-error-page">
+        <h1>We're sorry, but something went wrong.</h1>
+      </div>
+      <div style="text-align: center;">
+        <a href="#" class="backbutton" onclick="history.back()"> Go Back</a>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+
   </div>
 </body>
 </html>
