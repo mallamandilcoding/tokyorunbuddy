@@ -13,13 +13,13 @@
       </span>
     </div>
     <div class="d-flex justify-content-center mb-3">
-      <%= pie_chart @temperatures,legend: "right",height: "225px",width: "225px", title: "Time Of Day" %>
+      <%= pie_chart @temperatures,legend: "right",height: "225px",width: "225px", title: "Temperature" %>
       <span class="d-flex align-items-center ms-2">
       <%# <span>Frequent Time Of The Day: <strong> <%= @time_of_day[0] </strong></span> %>
       </span>
     </div>
     <div class="d-flex justify-content-center mb-">
-      <%= bar_chart @time_of_days,height: "240px",width: "240px", title: "Temperature" %>
+      <%= bar_chart @time_of_days,height: "240px",width: "240px", title: "Time Of Day" %>
 
       <%#= pie_chart @temperatures, width: "225px", height: "225px", legend: "right",alignment: "center",fontSize: "10px", title: "Temperature" %>
       <span class="d-flex align-items-center ms-2">
