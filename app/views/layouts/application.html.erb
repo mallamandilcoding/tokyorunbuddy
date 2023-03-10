@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
-    <meta name="turbolinks-visit-control" content="reload">
+    <%# <meta name="turbolinks-visit-control" content="reload"> %>
   </head>
   <body class="d-flex flex-column min-vh-100" data-controller="loader">
     <% unless controller_name == 'runs' && action_name == 'show' %>
@@ -37,7 +37,7 @@
     <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <% if !current_page?(new_user_session_path) %>
+    <% if !current_page?(new_user_session_path) && !current_page?(new_user_registration_path)%>
       <%= render partial: 'shared/footer_navbar' %>
     <% end %>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
