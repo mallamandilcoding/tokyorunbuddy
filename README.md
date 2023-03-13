@@ -12,7 +12,7 @@ This is a mobile web application that suggests the user runs on their preference
 
 
 <br>
-App home: http://camera-equip.herokuapp.com/cameras/98
+App home: https://www.tokyorunbuddy.live/
    
 
 ## Getting Started
