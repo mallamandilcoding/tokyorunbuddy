@@ -2,7 +2,7 @@
 
 This is a mobile web application that suggests the user runs on their preferences such as time of day, weather, location, temperature and the user can save this suggested runs in their google calendar. 
 
-![home](https://user-images.githubusercontent.com/122031769/224610644-57ee7aea-055c-4a3f-b6fa-312c7733c5c0.png)
+![home](https://user-images.githubusercontent.com/122031769/224611706-bed35e95-975d-4af3-bd86-4b0e900fc2d4.png)
 ![show](https://user-images.githubusercontent.com/122031769/224610655-acdd4400-0eac-41f9-9869-7192dceda8b8.png)
 ![runs](https://user-images.githubusercontent.com/122031769/224610666-60b78d18-4d64-4ae3-beee-23c8e2852398.png)
 ![trends](https://user-images.githubusercontent.com/122031769/224610673-682ef489-6285-4cc9-89a4-ff44de285b44.png)
