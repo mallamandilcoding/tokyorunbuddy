@@ -5,7 +5,10 @@ This is a mobile web application that suggests the user runs on their preference
 
 
 
-[![Watch the video](https://user-images.githubusercontent.com/122031769/225222833-8b676e68-31f9-4ffb-a025-3c8d5bcb3621.mp4)
+https://user-images.githubusercontent.com/122031769/225224134-e6cac88a-14bf-47bf-93b7-0450e45e3751.mp4
+
+
+
 ![home](https://user-images.githubusercontent.com/122031769/224611706-bed35e95-975d-4af3-bd86-4b0e900fc2d4.png)
 ![show](https://user-images.githubusercontent.com/122031769/224610655-acdd4400-0eac-41f9-9869-7192dceda8b8.png)
 ![runs](https://user-images.githubusercontent.com/122031769/224610666-60b78d18-4d64-4ae3-beee-23c8e2852398.png)
