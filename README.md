@@ -1,8 +1,9 @@
 #🏃‍♂️🏃‍♂️🏃‍♂️ Tokyo Run Buddy
 
 This is a mobile web application that suggests the user runs on their preferences such as time of day, weather, location, temperature and the user can save this suggested runs in their google calendar.
-<br>
+
 login credentials - user : sutairusu@me.com || password : 123123
+<br>
 
 
 
