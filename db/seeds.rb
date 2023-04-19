@@ -170,7 +170,7 @@ runs = [
     precipitation: 0.0,
     temperature: 10,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -183,7 +183,7 @@ runs = [
     precipitation: 0.0,
     temperature: 16,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -196,7 +196,7 @@ runs = [
     precipitation: 0.0,
     temperature: 17,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -208,7 +208,7 @@ runs = [
     precipitation: 0.0,
     temperature: 15,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -220,7 +220,7 @@ runs = [
     precipitation: 0.0,
     temperature: 16,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -232,7 +232,7 @@ runs = [
     precipitation: 0.0,
     temperature: 14,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -245,7 +245,7 @@ runs = [
     precipitation: 0.0,
     temperature: 11,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -258,7 +258,7 @@ runs = [
     precipitation: 0.0,
     temperature: 14,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -271,7 +271,7 @@ runs = [
     precipitation: 0.0,
     temperature: 12,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   },
   {
@@ -284,7 +284,7 @@ runs = [
     precipitation: 0.0,
     temperature: 10,
     air_quality: 1,
-    user: User.find_by(first_name: "Mandil"),
+    user: User.find_by(first_name: "Kurisu"),
     location: locations.sample
   }
   # ,
